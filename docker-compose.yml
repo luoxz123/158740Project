@@ -1,0 +1,112 @@
+name: renewable-nz
+
+services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    container_name: renewable_nz_postgis
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-renewable_nz}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Postgres123}
+    ports:
+      - "${POSTGIS_HOST_PORT:-15432}:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./database/sample_data.sql:/docker-entrypoint-initdb.d/02_sample_data.sql:ro
+      - ./database/indexes.sql:/docker-entrypoint-initdb.d/03_indexes.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  importer:
+    build:
+      context: .
+      dockerfile: docker/tools/Dockerfile
+    container_name: renewable_nz_importer
+    depends_on:
+      postgis:
+        condition: service_healthy
+    environment:
+      DB_DSN: host=postgis port=5432 dbname=${POSTGRES_DB:-renewable_nz} user=${POSTGRES_USER:-postgres} password=${POSTGRES_PASSWORD:-Postgres123}
+    working_dir: /app
+    volumes:
+      - ./:/app:ro
+    command: ["python", "scripts/import_processed_data.py", "--replace"]
+    restart: "no"
+
+  geoserver:
+    image: kartoza/geoserver:2.25.2
+    container_name: renewable_nz_geoserver
+    depends_on:
+      postgis:
+        condition: service_healthy
+    environment:
+      GEOSERVER_ADMIN_USER: ${GEOSERVER_ADMIN_USER:-admin}
+      GEOSERVER_ADMIN_PASSWORD: ${GEOSERVER_ADMIN_PASSWORD:-geoserver}
+    ports:
+      - "${GEOSERVER_PORT:-8080}:8080"
+    volumes:
+      - geoserver_data:/opt/geoserver/data_dir
+
+  geoserver-init:
+    build:
+      context: .
+      dockerfile: docker/tools/Dockerfile
+    container_name: renewable_nz_geoserver_init
+    depends_on:
+      importer:
+        condition: service_completed_successfully
+      geoserver:
+        condition: service_started
+    environment:
+      GEOSERVER_URL: http://geoserver:8080/geoserver
+      GEOSERVER_USER: ${GEOSERVER_ADMIN_USER:-admin}
+      GEOSERVER_PASSWORD: ${GEOSERVER_ADMIN_PASSWORD:-geoserver}
+      POSTGIS_HOST: postgis
+      POSTGIS_PORT: 5432
+      POSTGIS_DB: ${POSTGRES_DB:-renewable_nz}
+      POSTGIS_SCHEMA: renewable_nz
+      POSTGIS_USER: ${POSTGRES_USER:-postgres}
+      POSTGIS_PASSWORD: ${POSTGRES_PASSWORD:-Postgres123}
+    working_dir: /app
+    volumes:
+      - ./:/app:ro
+    command: ["python", "scripts/configure_geoserver.py"]
+    restart: "no"
+
+  frontend:
+    image: nginx:1.27-alpine
+    container_name: renewable_nz_frontend
+    depends_on:
+      geoserver:
+        condition: service_started
+    ports:
+      - "${FRONTEND_PORT:-8000}:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+  api:
+    profiles: ["api"]
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    container_name: renewable_nz_api
+    depends_on:
+      postgis:
+        condition: service_healthy
+    environment:
+      POSTGIS_HOST: postgis
+      POSTGIS_PORT: 5432
+      POSTGIS_DB: ${POSTGRES_DB:-renewable_nz}
+      POSTGIS_USER: ${POSTGRES_USER:-postgres}
+      POSTGIS_PASSWORD: ${POSTGRES_PASSWORD:-Postgres123}
+    ports:
+      - "${API_PORT:-9000}:9000"
+
+volumes:
+  postgis_data:
+  geoserver_data:

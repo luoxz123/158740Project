@@ -1,0 +1,5 @@
+# Add one article URL per line for live GIR scraping.
+# Recommended searches:
+# - "solar farm New Zealand" RNZ
+# - "wind farm New Zealand" Stuff
+# - "renewable energy New Zealand" NZ Herald

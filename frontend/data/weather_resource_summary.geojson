@@ -1,0 +1,2274 @@
+{
+  "type": "FeatureCollection",
+  "name": "weather_resource_summary",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Cape Reinga",
+        "region": "Northland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.326,
+        "mean_wind_speed_100m_ms": 7.797,
+        "p90_wind_speed_100m_ms": 12.62,
+        "max_wind_gust_10m_ms": 33.4,
+        "mean_shortwave_radiation_wm2": 195.709,
+        "total_shortwave_radiation_kwh_m2": 3433.515,
+        "total_sunshine_hours": 7150.06,
+        "wind_resource_score": 86.6,
+        "solar_resource_score": 78.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.681,
+          -34.426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Kaitaia",
+        "region": "Northland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.257,
+        "mean_wind_speed_100m_ms": 6.816,
+        "p90_wind_speed_100m_ms": 11.15,
+        "max_wind_gust_10m_ms": 27.0,
+        "mean_shortwave_radiation_wm2": 192.386,
+        "total_shortwave_radiation_kwh_m2": 3375.223,
+        "total_sunshine_hours": 7047.16,
+        "wind_resource_score": 75.7,
+        "solar_resource_score": 77.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.2627,
+          -35.1149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Ahipara",
+        "region": "Northland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.113,
+        "mean_wind_speed_100m_ms": 7.522,
+        "p90_wind_speed_100m_ms": 12.15,
+        "max_wind_gust_10m_ms": 29.3,
+        "mean_shortwave_radiation_wm2": 189.056,
+        "total_shortwave_radiation_kwh_m2": 3316.8,
+        "total_sunshine_hours": 6886.19,
+        "wind_resource_score": 83.6,
+        "solar_resource_score": 75.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.154,
+          -35.166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Kaikohe",
+        "region": "Northland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.635,
+        "mean_wind_speed_100m_ms": 5.916,
+        "p90_wind_speed_100m_ms": 10.15,
+        "max_wind_gust_10m_ms": 25.0,
+        "mean_shortwave_radiation_wm2": 180.378,
+        "total_shortwave_radiation_kwh_m2": 3164.554,
+        "total_sunshine_hours": 6699.53,
+        "wind_resource_score": 65.7,
+        "solar_resource_score": 72.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.802,
+          -35.407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Dargaville",
+        "region": "Northland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.655,
+        "mean_wind_speed_100m_ms": 7.235,
+        "p90_wind_speed_100m_ms": 11.86,
+        "max_wind_gust_10m_ms": 30.3,
+        "mean_shortwave_radiation_wm2": 189.525,
+        "total_shortwave_radiation_kwh_m2": 3325.03,
+        "total_sunshine_hours": 7051.5,
+        "wind_resource_score": 80.4,
+        "solar_resource_score": 75.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.883,
+          -35.933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Marsden Point",
+        "region": "Northland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.693,
+        "mean_wind_speed_100m_ms": 7.014,
+        "p90_wind_speed_100m_ms": 11.29,
+        "max_wind_gust_10m_ms": 28.8,
+        "mean_shortwave_radiation_wm2": 188.901,
+        "total_shortwave_radiation_kwh_m2": 3314.084,
+        "total_sunshine_hours": 7051.93,
+        "wind_resource_score": 77.9,
+        "solar_resource_score": 75.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.5,
+          -35.842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Whangarei Heads",
+        "region": "Northland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.693,
+        "mean_wind_speed_100m_ms": 7.014,
+        "p90_wind_speed_100m_ms": 11.29,
+        "max_wind_gust_10m_ms": 28.8,
+        "mean_shortwave_radiation_wm2": 188.901,
+        "total_shortwave_radiation_kwh_m2": 3314.084,
+        "total_sunshine_hours": 7051.93,
+        "wind_resource_score": 77.9,
+        "solar_resource_score": 75.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.537,
+          -35.816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Wellsford",
+        "region": "Auckland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.215,
+        "mean_wind_speed_100m_ms": 6.998,
+        "p90_wind_speed_100m_ms": 11.12,
+        "max_wind_gust_10m_ms": 23.5,
+        "mean_shortwave_radiation_wm2": 183.593,
+        "total_shortwave_radiation_kwh_m2": 3220.964,
+        "total_sunshine_hours": 6893.53,
+        "wind_resource_score": 77.8,
+        "solar_resource_score": 73.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.522,
+          -36.293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Warkworth",
+        "region": "Auckland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.231,
+        "mean_wind_speed_100m_ms": 6.865,
+        "p90_wind_speed_100m_ms": 11.02,
+        "max_wind_gust_10m_ms": 24.7,
+        "mean_shortwave_radiation_wm2": 189.229,
+        "total_shortwave_radiation_kwh_m2": 3319.835,
+        "total_sunshine_hours": 7085.46,
+        "wind_resource_score": 76.3,
+        "solar_resource_score": 75.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.664,
+          -36.397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Helensville",
+        "region": "Auckland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.445,
+        "mean_wind_speed_100m_ms": 7.18,
+        "p90_wind_speed_100m_ms": 11.51,
+        "max_wind_gust_10m_ms": 25.3,
+        "mean_shortwave_radiation_wm2": 184.675,
+        "total_shortwave_radiation_kwh_m2": 3239.934,
+        "total_sunshine_hours": 6974.1,
+        "wind_resource_score": 79.8,
+        "solar_resource_score": 73.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.45,
+          -36.678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Waiuku",
+        "region": "Auckland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.386,
+        "mean_wind_speed_100m_ms": 7.061,
+        "p90_wind_speed_100m_ms": 11.41,
+        "max_wind_gust_10m_ms": 25.6,
+        "mean_shortwave_radiation_wm2": 181.373,
+        "total_shortwave_radiation_kwh_m2": 3182.014,
+        "total_sunshine_hours": 6745.69,
+        "wind_resource_score": 78.5,
+        "solar_resource_score": 72.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.734,
+          -37.248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Great Barrier Island",
+        "region": "Auckland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.282,
+        "mean_wind_speed_100m_ms": 7.793,
+        "p90_wind_speed_100m_ms": 12.52,
+        "max_wind_gust_10m_ms": 32.2,
+        "mean_shortwave_radiation_wm2": 201.754,
+        "total_shortwave_radiation_kwh_m2": 3539.567,
+        "total_sunshine_hours": 7236.68,
+        "wind_resource_score": 86.6,
+        "solar_resource_score": 80.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.415,
+          -36.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Raglan",
+        "region": "Waikato",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.281,
+        "mean_wind_speed_100m_ms": 6.591,
+        "p90_wind_speed_100m_ms": 11.36,
+        "max_wind_gust_10m_ms": 34.1,
+        "mean_shortwave_radiation_wm2": 188.051,
+        "total_shortwave_radiation_kwh_m2": 3299.173,
+        "total_sunshine_hours": 6910.33,
+        "wind_resource_score": 73.2,
+        "solar_resource_score": 75.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.872,
+          -37.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Huntly",
+        "region": "Waikato",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.713,
+        "mean_wind_speed_100m_ms": 6.031,
+        "p90_wind_speed_100m_ms": 10.04,
+        "max_wind_gust_10m_ms": 23.5,
+        "mean_shortwave_radiation_wm2": 179.389,
+        "total_shortwave_radiation_kwh_m2": 3147.203,
+        "total_sunshine_hours": 6857.98,
+        "wind_resource_score": 67.0,
+        "solar_resource_score": 71.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.159,
+          -37.557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Te Awamutu",
+        "region": "Waikato",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.883,
+        "mean_wind_speed_100m_ms": 4.755,
+        "p90_wind_speed_100m_ms": 8.77,
+        "max_wind_gust_10m_ms": 22.9,
+        "mean_shortwave_radiation_wm2": 179.107,
+        "total_shortwave_radiation_kwh_m2": 3142.251,
+        "total_sunshine_hours": 6863.51,
+        "wind_resource_score": 52.8,
+        "solar_resource_score": 71.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.325,
+          -38.008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Tokoroa",
+        "region": "Waikato",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.489,
+        "mean_wind_speed_100m_ms": 5.891,
+        "p90_wind_speed_100m_ms": 9.68,
+        "max_wind_gust_10m_ms": 23.5,
+        "mean_shortwave_radiation_wm2": 177.714,
+        "total_shortwave_radiation_kwh_m2": 3117.821,
+        "total_sunshine_hours": 6698.7,
+        "wind_resource_score": 65.5,
+        "solar_resource_score": 71.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.871,
+          -38.221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Matamata",
+        "region": "Waikato",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.937,
+        "mean_wind_speed_100m_ms": 4.974,
+        "p90_wind_speed_100m_ms": 8.98,
+        "max_wind_gust_10m_ms": 21.1,
+        "mean_shortwave_radiation_wm2": 181.04,
+        "total_shortwave_radiation_kwh_m2": 3176.172,
+        "total_sunshine_hours": 6765.45,
+        "wind_resource_score": 55.3,
+        "solar_resource_score": 72.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.773,
+          -37.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Hauraki Plains",
+        "region": "Waikato",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.083,
+        "mean_wind_speed_100m_ms": 5.126,
+        "p90_wind_speed_100m_ms": 9.27,
+        "max_wind_gust_10m_ms": 22.4,
+        "mean_shortwave_radiation_wm2": 179.967,
+        "total_shortwave_radiation_kwh_m2": 3157.345,
+        "total_sunshine_hours": 6882.73,
+        "wind_resource_score": 57.0,
+        "solar_resource_score": 72.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.55,
+          -37.35
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Whakatane",
+        "region": "Bay of Plenty",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.178,
+        "mean_wind_speed_100m_ms": 5.187,
+        "p90_wind_speed_100m_ms": 8.73,
+        "max_wind_gust_10m_ms": 30.8,
+        "mean_shortwave_radiation_wm2": 188.92,
+        "total_shortwave_radiation_kwh_m2": 3314.416,
+        "total_sunshine_hours": 6995.82,
+        "wind_resource_score": 57.6,
+        "solar_resource_score": 75.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.99,
+          -37.953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Kawerau",
+        "region": "Bay of Plenty",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.567,
+        "mean_wind_speed_100m_ms": 4.528,
+        "p90_wind_speed_100m_ms": 8.0,
+        "max_wind_gust_10m_ms": 22.6,
+        "mean_shortwave_radiation_wm2": 180.409,
+        "total_shortwave_radiation_kwh_m2": 3165.1,
+        "total_sunshine_hours": 6841.09,
+        "wind_resource_score": 50.3,
+        "solar_resource_score": 72.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.7,
+          -38.1
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Opotiki",
+        "region": "Bay of Plenty",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.522,
+        "mean_wind_speed_100m_ms": 5.451,
+        "p90_wind_speed_100m_ms": 9.97,
+        "max_wind_gust_10m_ms": 29.3,
+        "mean_shortwave_radiation_wm2": 184.328,
+        "total_shortwave_radiation_kwh_m2": 3233.845,
+        "total_sunshine_hours": 6868.56,
+        "wind_resource_score": 60.6,
+        "solar_resource_score": 73.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.287,
+          -38.009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Te Puke",
+        "region": "Bay of Plenty",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.375,
+        "mean_wind_speed_100m_ms": 5.65,
+        "p90_wind_speed_100m_ms": 9.39,
+        "max_wind_gust_10m_ms": 28.9,
+        "mean_shortwave_radiation_wm2": 185.973,
+        "total_shortwave_radiation_kwh_m2": 3262.707,
+        "total_sunshine_hours": 6963.79,
+        "wind_resource_score": 62.8,
+        "solar_resource_score": 74.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.325,
+          -37.786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Murupara",
+        "region": "Bay of Plenty",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.519,
+        "mean_wind_speed_100m_ms": 4.502,
+        "p90_wind_speed_100m_ms": 7.95,
+        "max_wind_gust_10m_ms": 24.4,
+        "mean_shortwave_radiation_wm2": 173.429,
+        "total_shortwave_radiation_kwh_m2": 3042.63,
+        "total_sunshine_hours": 6393.56,
+        "wind_resource_score": 50.0,
+        "solar_resource_score": 69.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.707,
+          -38.467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "East Cape",
+        "region": "Gisborne",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.051,
+        "mean_wind_speed_100m_ms": 7.754,
+        "p90_wind_speed_100m_ms": 13.0,
+        "max_wind_gust_10m_ms": 33.6,
+        "mean_shortwave_radiation_wm2": 177.985,
+        "total_shortwave_radiation_kwh_m2": 3122.563,
+        "total_sunshine_hours": 6665.39,
+        "wind_resource_score": 86.2,
+        "solar_resource_score": 71.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          178.55,
+          -37.69
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Ruatoria",
+        "region": "Gisborne",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.281,
+        "mean_wind_speed_100m_ms": 5.356,
+        "p90_wind_speed_100m_ms": 9.87,
+        "max_wind_gust_10m_ms": 34.6,
+        "mean_shortwave_radiation_wm2": 177.507,
+        "total_shortwave_radiation_kwh_m2": 3114.189,
+        "total_sunshine_hours": 6507.58,
+        "wind_resource_score": 59.5,
+        "solar_resource_score": 71.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          178.319,
+          -37.892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Tolaga Bay",
+        "region": "Gisborne",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.965,
+        "mean_wind_speed_100m_ms": 6.352,
+        "p90_wind_speed_100m_ms": 11.17,
+        "max_wind_gust_10m_ms": 29.6,
+        "mean_shortwave_radiation_wm2": 182.355,
+        "total_shortwave_radiation_kwh_m2": 3199.237,
+        "total_sunshine_hours": 6788.04,
+        "wind_resource_score": 70.6,
+        "solar_resource_score": 72.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          178.298,
+          -38.372
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Wairoa",
+        "region": "Hawke's Bay",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.119,
+        "mean_wind_speed_100m_ms": 6.333,
+        "p90_wind_speed_100m_ms": 10.74,
+        "max_wind_gust_10m_ms": 25.8,
+        "mean_shortwave_radiation_wm2": 178.912,
+        "total_shortwave_radiation_kwh_m2": 3138.83,
+        "total_sunshine_hours": 6660.22,
+        "wind_resource_score": 70.4,
+        "solar_resource_score": 71.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.367,
+          -39.033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Mahia Peninsula",
+        "region": "Hawke's Bay",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.565,
+        "mean_wind_speed_100m_ms": 6.971,
+        "p90_wind_speed_100m_ms": 12.01,
+        "max_wind_gust_10m_ms": 29.9,
+        "mean_shortwave_radiation_wm2": 189.526,
+        "total_shortwave_radiation_kwh_m2": 3325.039,
+        "total_sunshine_hours": 6932.57,
+        "wind_resource_score": 77.5,
+        "solar_resource_score": 75.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.9,
+          -39.1
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Waipukurau",
+        "region": "Hawke's Bay",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.685,
+        "mean_wind_speed_100m_ms": 5.799,
+        "p90_wind_speed_100m_ms": 10.75,
+        "max_wind_gust_10m_ms": 28.2,
+        "mean_shortwave_radiation_wm2": 172.512,
+        "total_shortwave_radiation_kwh_m2": 3026.557,
+        "total_sunshine_hours": 6536.2,
+        "wind_resource_score": 64.4,
+        "solar_resource_score": 69.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.557,
+          -39.995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Central Hawke's Bay",
+        "region": "Hawke's Bay",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.662,
+        "mean_wind_speed_100m_ms": 5.831,
+        "p90_wind_speed_100m_ms": 10.85,
+        "max_wind_gust_10m_ms": 29.3,
+        "mean_shortwave_radiation_wm2": 172.181,
+        "total_shortwave_radiation_kwh_m2": 3020.748,
+        "total_sunshine_hours": 6451.46,
+        "wind_resource_score": 64.8,
+        "solar_resource_score": 68.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.45,
+          -40.05
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Cape Egmont",
+        "region": "Taranaki",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.12,
+        "mean_wind_speed_100m_ms": 7.699,
+        "p90_wind_speed_100m_ms": 13.78,
+        "max_wind_gust_10m_ms": 30.6,
+        "mean_shortwave_radiation_wm2": 181.44,
+        "total_shortwave_radiation_kwh_m2": 3183.182,
+        "total_sunshine_hours": 6750.12,
+        "wind_resource_score": 85.5,
+        "solar_resource_score": 72.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.754,
+          -39.278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Stratford",
+        "region": "Taranaki",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.85,
+        "mean_wind_speed_100m_ms": 5.844,
+        "p90_wind_speed_100m_ms": 11.58,
+        "max_wind_gust_10m_ms": 26.7,
+        "mean_shortwave_radiation_wm2": 164.26,
+        "total_shortwave_radiation_kwh_m2": 2881.773,
+        "total_sunshine_hours": 6486.45,
+        "wind_resource_score": 64.9,
+        "solar_resource_score": 65.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.284,
+          -39.338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Hawera",
+        "region": "Taranaki",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.872,
+        "mean_wind_speed_100m_ms": 7.444,
+        "p90_wind_speed_100m_ms": 12.7,
+        "max_wind_gust_10m_ms": 32.6,
+        "mean_shortwave_radiation_wm2": 177.8,
+        "total_shortwave_radiation_kwh_m2": 3119.323,
+        "total_sunshine_hours": 6804.38,
+        "wind_resource_score": 82.7,
+        "solar_resource_score": 71.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.284,
+          -39.592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Foxton",
+        "region": "Manawatu",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.254,
+        "mean_wind_speed_100m_ms": 6.483,
+        "p90_wind_speed_100m_ms": 12.34,
+        "max_wind_gust_10m_ms": 26.9,
+        "mean_shortwave_radiation_wm2": 183.724,
+        "total_shortwave_radiation_kwh_m2": 3223.252,
+        "total_sunshine_hours": 6873.5,
+        "wind_resource_score": 72.0,
+        "solar_resource_score": 73.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.286,
+          -40.472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Pahiatua",
+        "region": "Manawatu",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.228,
+        "mean_wind_speed_100m_ms": 6.977,
+        "p90_wind_speed_100m_ms": 12.43,
+        "max_wind_gust_10m_ms": 27.6,
+        "mean_shortwave_radiation_wm2": 162.06,
+        "total_shortwave_radiation_kwh_m2": 2843.175,
+        "total_sunshine_hours": 6341.47,
+        "wind_resource_score": 77.5,
+        "solar_resource_score": 64.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.84,
+          -40.452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Dannevirke",
+        "region": "Manawatu",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.046,
+        "mean_wind_speed_100m_ms": 6.479,
+        "p90_wind_speed_100m_ms": 12.19,
+        "max_wind_gust_10m_ms": 27.3,
+        "mean_shortwave_radiation_wm2": 163.772,
+        "total_shortwave_radiation_kwh_m2": 2873.218,
+        "total_sunshine_hours": 6297.53,
+        "wind_resource_score": 72.0,
+        "solar_resource_score": 65.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.1,
+          -40.208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Masterton",
+        "region": "Wellington",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.964,
+        "mean_wind_speed_100m_ms": 4.695,
+        "p90_wind_speed_100m_ms": 9.12,
+        "max_wind_gust_10m_ms": 32.3,
+        "mean_shortwave_radiation_wm2": 157.181,
+        "total_shortwave_radiation_kwh_m2": 2757.585,
+        "total_sunshine_hours": 5890.51,
+        "wind_resource_score": 52.2,
+        "solar_resource_score": 62.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.658,
+          -40.951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Martinborough",
+        "region": "Wellington",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.698,
+        "mean_wind_speed_100m_ms": 5.874,
+        "p90_wind_speed_100m_ms": 10.96,
+        "max_wind_gust_10m_ms": 29.5,
+        "mean_shortwave_radiation_wm2": 167.891,
+        "total_shortwave_radiation_kwh_m2": 2945.472,
+        "total_sunshine_hours": 6272.15,
+        "wind_resource_score": 65.3,
+        "solar_resource_score": 67.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.459,
+          -41.219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Cape Palliser",
+        "region": "Wellington",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.566,
+        "mean_wind_speed_100m_ms": 8.398,
+        "p90_wind_speed_100m_ms": 15.28,
+        "max_wind_gust_10m_ms": 45.2,
+        "mean_shortwave_radiation_wm2": 177.838,
+        "total_shortwave_radiation_kwh_m2": 3119.982,
+        "total_sunshine_hours": 6756.2,
+        "wind_resource_score": 93.3,
+        "solar_resource_score": 71.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.291,
+          -41.612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Castlepoint",
+        "region": "Wellington",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.375,
+        "mean_wind_speed_100m_ms": 8.552,
+        "p90_wind_speed_100m_ms": 14.6,
+        "max_wind_gust_10m_ms": 37.6,
+        "mean_shortwave_radiation_wm2": 173.545,
+        "total_shortwave_radiation_kwh_m2": 3044.673,
+        "total_sunshine_hours": 6586.6,
+        "wind_resource_score": 95.0,
+        "solar_resource_score": 69.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.222,
+          -40.902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Makara",
+        "region": "Wellington",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 6.258,
+        "mean_wind_speed_100m_ms": 9.297,
+        "p90_wind_speed_100m_ms": 15.25,
+        "max_wind_gust_10m_ms": 34.1,
+        "mean_shortwave_radiation_wm2": 179.252,
+        "total_shortwave_radiation_kwh_m2": 3144.798,
+        "total_sunshine_hours": 6632.88,
+        "wind_resource_score": 100.0,
+        "solar_resource_score": 71.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.706,
+          -41.223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Ohariu Valley",
+        "region": "Wellington",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.498,
+        "mean_wind_speed_100m_ms": 8.811,
+        "p90_wind_speed_100m_ms": 14.23,
+        "max_wind_gust_10m_ms": 32.1,
+        "mean_shortwave_radiation_wm2": 172.881,
+        "total_shortwave_radiation_kwh_m2": 3033.017,
+        "total_sunshine_hours": 6568.2,
+        "wind_resource_score": 97.9,
+        "solar_resource_score": 69.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.769,
+          -41.184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Takaka",
+        "region": "Tasman",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 1.817,
+        "mean_wind_speed_100m_ms": 2.875,
+        "p90_wind_speed_100m_ms": 5.8,
+        "max_wind_gust_10m_ms": 30.7,
+        "mean_shortwave_radiation_wm2": 174.54,
+        "total_shortwave_radiation_kwh_m2": 3062.136,
+        "total_sunshine_hours": 6547.48,
+        "wind_resource_score": 31.9,
+        "solar_resource_score": 69.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.806,
+          -40.858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Motueka",
+        "region": "Tasman",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.579,
+        "mean_wind_speed_100m_ms": 3.968,
+        "p90_wind_speed_100m_ms": 7.33,
+        "max_wind_gust_10m_ms": 25.7,
+        "mean_shortwave_radiation_wm2": 179.574,
+        "total_shortwave_radiation_kwh_m2": 3150.453,
+        "total_sunshine_hours": 6845.68,
+        "wind_resource_score": 44.1,
+        "solar_resource_score": 71.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.009,
+          -41.124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Murchison",
+        "region": "Tasman",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 1.561,
+        "mean_wind_speed_100m_ms": 2.845,
+        "p90_wind_speed_100m_ms": 5.73,
+        "max_wind_gust_10m_ms": 23.0,
+        "mean_shortwave_radiation_wm2": 157.007,
+        "total_shortwave_radiation_kwh_m2": 2754.53,
+        "total_sunshine_hours": 5910.17,
+        "wind_resource_score": 31.6,
+        "solar_resource_score": 62.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.333,
+          -41.801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Ward",
+        "region": "Marlborough",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.68,
+        "mean_wind_speed_100m_ms": 7.307,
+        "p90_wind_speed_100m_ms": 13.2,
+        "max_wind_gust_10m_ms": 31.5,
+        "mean_shortwave_radiation_wm2": 186.364,
+        "total_shortwave_radiation_kwh_m2": 3269.563,
+        "total_sunshine_hours": 6981.92,
+        "wind_resource_score": 81.2,
+        "solar_resource_score": 74.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.131,
+          -41.827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Seddon",
+        "region": "Marlborough",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.442,
+        "mean_wind_speed_100m_ms": 5.622,
+        "p90_wind_speed_100m_ms": 10.83,
+        "max_wind_gust_10m_ms": 28.4,
+        "mean_shortwave_radiation_wm2": 183.573,
+        "total_shortwave_radiation_kwh_m2": 3220.612,
+        "total_sunshine_hours": 6962.87,
+        "wind_resource_score": 62.5,
+        "solar_resource_score": 73.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.07,
+          -41.67
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Awatere Valley",
+        "region": "Marlborough",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.099,
+        "mean_wind_speed_100m_ms": 5.07,
+        "p90_wind_speed_100m_ms": 10.18,
+        "max_wind_gust_10m_ms": 31.4,
+        "mean_shortwave_radiation_wm2": 181.582,
+        "total_shortwave_radiation_kwh_m2": 3185.676,
+        "total_sunshine_hours": 6917.91,
+        "wind_resource_score": 56.3,
+        "solar_resource_score": 72.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.0,
+          -41.75
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Cape Campbell",
+        "region": "Marlborough",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.779,
+        "mean_wind_speed_100m_ms": 7.452,
+        "p90_wind_speed_100m_ms": 13.15,
+        "max_wind_gust_10m_ms": 30.2,
+        "mean_shortwave_radiation_wm2": 184.675,
+        "total_shortwave_radiation_kwh_m2": 3239.931,
+        "total_sunshine_hours": 6938.75,
+        "wind_resource_score": 82.8,
+        "solar_resource_score": 73.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.276,
+          -41.73
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Kaikoura",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.178,
+        "mean_wind_speed_100m_ms": 3.181,
+        "p90_wind_speed_100m_ms": 6.86,
+        "max_wind_gust_10m_ms": 26.4,
+        "mean_shortwave_radiation_wm2": 176.008,
+        "total_shortwave_radiation_kwh_m2": 3087.893,
+        "total_sunshine_hours": 6633.7,
+        "wind_resource_score": 35.3,
+        "solar_resource_score": 70.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.681,
+          -42.401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Hanmer Springs",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.828,
+        "mean_wind_speed_100m_ms": 4.54,
+        "p90_wind_speed_100m_ms": 9.79,
+        "max_wind_gust_10m_ms": 46.4,
+        "mean_shortwave_radiation_wm2": 169.828,
+        "total_shortwave_radiation_kwh_m2": 2979.454,
+        "total_sunshine_hours": 6287.37,
+        "wind_resource_score": 50.4,
+        "solar_resource_score": 67.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.829,
+          -42.524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Culverden",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.953,
+        "mean_wind_speed_100m_ms": 4.838,
+        "p90_wind_speed_100m_ms": 9.58,
+        "max_wind_gust_10m_ms": 37.6,
+        "mean_shortwave_radiation_wm2": 171.029,
+        "total_shortwave_radiation_kwh_m2": 3000.537,
+        "total_sunshine_hours": 6329.94,
+        "wind_resource_score": 53.8,
+        "solar_resource_score": 68.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.85,
+          -42.77
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Amberley",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.896,
+        "mean_wind_speed_100m_ms": 6.158,
+        "p90_wind_speed_100m_ms": 11.15,
+        "max_wind_gust_10m_ms": 36.4,
+        "mean_shortwave_radiation_wm2": 172.276,
+        "total_shortwave_radiation_kwh_m2": 3022.412,
+        "total_sunshine_hours": 6501.06,
+        "wind_resource_score": 68.4,
+        "solar_resource_score": 68.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.73,
+          -43.155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Rangiora",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.483,
+        "mean_wind_speed_100m_ms": 5.382,
+        "p90_wind_speed_100m_ms": 10.1,
+        "max_wind_gust_10m_ms": 32.6,
+        "mean_shortwave_radiation_wm2": 175.512,
+        "total_shortwave_radiation_kwh_m2": 3079.187,
+        "total_sunshine_hours": 6596.7,
+        "wind_resource_score": 59.8,
+        "solar_resource_score": 70.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.595,
+          -43.304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Darfield",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.832,
+        "mean_wind_speed_100m_ms": 6.149,
+        "p90_wind_speed_100m_ms": 10.29,
+        "max_wind_gust_10m_ms": 32.9,
+        "mean_shortwave_radiation_wm2": 167.602,
+        "total_shortwave_radiation_kwh_m2": 2940.413,
+        "total_sunshine_hours": 6291.48,
+        "wind_resource_score": 68.3,
+        "solar_resource_score": 67.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.112,
+          -43.489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Ashburton",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.662,
+        "mean_wind_speed_100m_ms": 5.809,
+        "p90_wind_speed_100m_ms": 10.54,
+        "max_wind_gust_10m_ms": 29.5,
+        "mean_shortwave_radiation_wm2": 164.19,
+        "total_shortwave_radiation_kwh_m2": 2880.551,
+        "total_sunshine_hours": 6255.83,
+        "wind_resource_score": 64.5,
+        "solar_resource_score": 65.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.749,
+          -43.904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Methven",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.091,
+        "mean_wind_speed_100m_ms": 3.204,
+        "p90_wind_speed_100m_ms": 6.18,
+        "max_wind_gust_10m_ms": 33.4,
+        "mean_shortwave_radiation_wm2": 166.901,
+        "total_shortwave_radiation_kwh_m2": 2928.105,
+        "total_sunshine_hours": 6339.58,
+        "wind_resource_score": 35.6,
+        "solar_resource_score": 66.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.646,
+          -43.633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Geraldine",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.386,
+        "mean_wind_speed_100m_ms": 3.763,
+        "p90_wind_speed_100m_ms": 7.6,
+        "max_wind_gust_10m_ms": 22.5,
+        "mean_shortwave_radiation_wm2": 162.002,
+        "total_shortwave_radiation_kwh_m2": 2842.155,
+        "total_sunshine_hours": 6226.98,
+        "wind_resource_score": 41.8,
+        "solar_resource_score": 64.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.244,
+          -44.092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Fairlie",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.234,
+        "mean_wind_speed_100m_ms": 3.553,
+        "p90_wind_speed_100m_ms": 7.28,
+        "max_wind_gust_10m_ms": 27.4,
+        "mean_shortwave_radiation_wm2": 168.248,
+        "total_shortwave_radiation_kwh_m2": 2951.742,
+        "total_sunshine_hours": 6458.53,
+        "wind_resource_score": 39.5,
+        "solar_resource_score": 67.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.828,
+          -44.101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Tekapo",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.685,
+        "mean_wind_speed_100m_ms": 3.956,
+        "p90_wind_speed_100m_ms": 8.08,
+        "max_wind_gust_10m_ms": 29.2,
+        "mean_shortwave_radiation_wm2": 178.194,
+        "total_shortwave_radiation_kwh_m2": 3126.238,
+        "total_sunshine_hours": 6604.89,
+        "wind_resource_score": 44.0,
+        "solar_resource_score": 71.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.477,
+          -44.004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Twizel",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 1.391,
+        "mean_wind_speed_100m_ms": 2.009,
+        "p90_wind_speed_100m_ms": 4.49,
+        "max_wind_gust_10m_ms": 15.0,
+        "mean_shortwave_radiation_wm2": 171.252,
+        "total_shortwave_radiation_kwh_m2": 3004.442,
+        "total_sunshine_hours": 6416.2,
+        "wind_resource_score": 22.3,
+        "solar_resource_score": 68.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.1,
+          -44.26
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Waimate",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.981,
+        "mean_wind_speed_100m_ms": 4.735,
+        "p90_wind_speed_100m_ms": 8.77,
+        "max_wind_gust_10m_ms": 25.3,
+        "mean_shortwave_radiation_wm2": 168.078,
+        "total_shortwave_radiation_kwh_m2": 2948.753,
+        "total_sunshine_hours": 6473.48,
+        "wind_resource_score": 52.6,
+        "solar_resource_score": 67.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.046,
+          -44.732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Mackenzie Basin",
+        "region": "Canterbury",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 1.526,
+        "mean_wind_speed_100m_ms": 2.243,
+        "p90_wind_speed_100m_ms": 5.19,
+        "max_wind_gust_10m_ms": 19.4,
+        "mean_shortwave_radiation_wm2": 173.282,
+        "total_shortwave_radiation_kwh_m2": 3040.066,
+        "total_sunshine_hours": 6532.46,
+        "wind_resource_score": 24.9,
+        "solar_resource_score": 69.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.3,
+          -44.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Karamea",
+        "region": "West Coast",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.512,
+        "mean_wind_speed_100m_ms": 3.815,
+        "p90_wind_speed_100m_ms": 8.18,
+        "max_wind_gust_10m_ms": 25.3,
+        "mean_shortwave_radiation_wm2": 155.185,
+        "total_shortwave_radiation_kwh_m2": 2722.559,
+        "total_sunshine_hours": 6123.89,
+        "wind_resource_score": 42.4,
+        "solar_resource_score": 62.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.112,
+          -41.247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Westport",
+        "region": "West Coast",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.581,
+        "mean_wind_speed_100m_ms": 5.542,
+        "p90_wind_speed_100m_ms": 10.54,
+        "max_wind_gust_10m_ms": 26.9,
+        "mean_shortwave_radiation_wm2": 163.527,
+        "total_shortwave_radiation_kwh_m2": 2868.915,
+        "total_sunshine_hours": 6306.04,
+        "wind_resource_score": 61.6,
+        "solar_resource_score": 65.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.603,
+          -41.752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Reefton",
+        "region": "West Coast",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.225,
+        "mean_wind_speed_100m_ms": 3.729,
+        "p90_wind_speed_100m_ms": 7.07,
+        "max_wind_gust_10m_ms": 22.6,
+        "mean_shortwave_radiation_wm2": 145.905,
+        "total_shortwave_radiation_kwh_m2": 2559.754,
+        "total_sunshine_hours": 5567.16,
+        "wind_resource_score": 41.4,
+        "solar_resource_score": 58.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.867,
+          -42.117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Greymouth",
+        "region": "West Coast",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.296,
+        "mean_wind_speed_100m_ms": 5.377,
+        "p90_wind_speed_100m_ms": 9.94,
+        "max_wind_gust_10m_ms": 33.0,
+        "mean_shortwave_radiation_wm2": 152.899,
+        "total_shortwave_radiation_kwh_m2": 2682.464,
+        "total_sunshine_hours": 5949.8,
+        "wind_resource_score": 59.7,
+        "solar_resource_score": 61.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.208,
+          -42.45
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Hokitika",
+        "region": "West Coast",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.821,
+        "mean_wind_speed_100m_ms": 4.364,
+        "p90_wind_speed_100m_ms": 8.97,
+        "max_wind_gust_10m_ms": 31.7,
+        "mean_shortwave_radiation_wm2": 156.81,
+        "total_shortwave_radiation_kwh_m2": 2751.071,
+        "total_sunshine_hours": 6127.05,
+        "wind_resource_score": 48.5,
+        "solar_resource_score": 62.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.967,
+          -42.717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Haast",
+        "region": "West Coast",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.782,
+        "mean_wind_speed_100m_ms": 4.262,
+        "p90_wind_speed_100m_ms": 8.97,
+        "max_wind_gust_10m_ms": 31.5,
+        "mean_shortwave_radiation_wm2": 149.056,
+        "total_shortwave_radiation_kwh_m2": 2615.04,
+        "total_sunshine_hours": 5670.06,
+        "wind_resource_score": 47.4,
+        "solar_resource_score": 59.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.042,
+          -43.88
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Oamaru",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.41,
+        "mean_wind_speed_100m_ms": 5.444,
+        "p90_wind_speed_100m_ms": 9.7,
+        "max_wind_gust_10m_ms": 27.2,
+        "mean_shortwave_radiation_wm2": 159.778,
+        "total_shortwave_radiation_kwh_m2": 2803.146,
+        "total_sunshine_hours": 6311.19,
+        "wind_resource_score": 60.5,
+        "solar_resource_score": 63.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.971,
+          -45.097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Palmerston",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.708,
+        "mean_wind_speed_100m_ms": 5.708,
+        "p90_wind_speed_100m_ms": 10.36,
+        "max_wind_gust_10m_ms": 29.9,
+        "mean_shortwave_radiation_wm2": 153.119,
+        "total_shortwave_radiation_kwh_m2": 2686.324,
+        "total_sunshine_hours": 5957.66,
+        "wind_resource_score": 63.4,
+        "solar_resource_score": 61.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.714,
+          -45.485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Alexandra",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 1.739,
+        "mean_wind_speed_100m_ms": 2.912,
+        "p90_wind_speed_100m_ms": 6.14,
+        "max_wind_gust_10m_ms": 26.9,
+        "mean_shortwave_radiation_wm2": 165.606,
+        "total_shortwave_radiation_kwh_m2": 2905.396,
+        "total_sunshine_hours": 6532.34,
+        "wind_resource_score": 32.4,
+        "solar_resource_score": 66.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.379,
+          -45.249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Cromwell",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 1.939,
+        "mean_wind_speed_100m_ms": 3.28,
+        "p90_wind_speed_100m_ms": 6.19,
+        "max_wind_gust_10m_ms": 29.5,
+        "mean_shortwave_radiation_wm2": 167.833,
+        "total_shortwave_radiation_kwh_m2": 2944.466,
+        "total_sunshine_hours": 6615.83,
+        "wind_resource_score": 36.4,
+        "solar_resource_score": 67.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.2,
+          -45.038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Ranfurly",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.425,
+        "mean_wind_speed_100m_ms": 3.81,
+        "p90_wind_speed_100m_ms": 8.58,
+        "max_wind_gust_10m_ms": 30.5,
+        "mean_shortwave_radiation_wm2": 171.112,
+        "total_shortwave_radiation_kwh_m2": 3001.99,
+        "total_sunshine_hours": 6595.65,
+        "wind_resource_score": 42.3,
+        "solar_resource_score": 68.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.096,
+          -45.13
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Naseby",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.797,
+        "mean_wind_speed_100m_ms": 4.43,
+        "p90_wind_speed_100m_ms": 9.5,
+        "max_wind_gust_10m_ms": 33.2,
+        "mean_shortwave_radiation_wm2": 171.076,
+        "total_shortwave_radiation_kwh_m2": 3001.355,
+        "total_sunshine_hours": 6717.11,
+        "wind_resource_score": 49.2,
+        "solar_resource_score": 68.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.144,
+          -45.022
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Middlemarch",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.011,
+        "mean_wind_speed_100m_ms": 3.271,
+        "p90_wind_speed_100m_ms": 6.68,
+        "max_wind_gust_10m_ms": 34.5,
+        "mean_shortwave_radiation_wm2": 158.712,
+        "total_shortwave_radiation_kwh_m2": 2784.447,
+        "total_sunshine_hours": 6120.57,
+        "wind_resource_score": 36.3,
+        "solar_resource_score": 63.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.123,
+          -45.506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Balclutha",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.843,
+        "mean_wind_speed_100m_ms": 6.34,
+        "p90_wind_speed_100m_ms": 11.51,
+        "max_wind_gust_10m_ms": 38.6,
+        "mean_shortwave_radiation_wm2": 146.658,
+        "total_shortwave_radiation_kwh_m2": 2572.96,
+        "total_sunshine_hours": 5774.68,
+        "wind_resource_score": 70.4,
+        "solar_resource_score": 58.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.736,
+          -46.238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Milton",
+        "region": "Otago",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.976,
+        "mean_wind_speed_100m_ms": 6.666,
+        "p90_wind_speed_100m_ms": 11.92,
+        "max_wind_gust_10m_ms": 40.0,
+        "mean_shortwave_radiation_wm2": 145.467,
+        "total_shortwave_radiation_kwh_m2": 2552.075,
+        "total_sunshine_hours": 5883.12,
+        "wind_resource_score": 74.1,
+        "solar_resource_score": 58.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.96,
+          -46.12
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Gore",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.8,
+        "mean_wind_speed_100m_ms": 6.244,
+        "p90_wind_speed_100m_ms": 11.36,
+        "max_wind_gust_10m_ms": 37.5,
+        "mean_shortwave_radiation_wm2": 144.231,
+        "total_shortwave_radiation_kwh_m2": 2530.383,
+        "total_sunshine_hours": 5817.64,
+        "wind_resource_score": 69.4,
+        "solar_resource_score": 57.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.944,
+          -46.099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Lumsden",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.672,
+        "mean_wind_speed_100m_ms": 6.022,
+        "p90_wind_speed_100m_ms": 11.92,
+        "max_wind_gust_10m_ms": 34.3,
+        "mean_shortwave_radiation_wm2": 150.413,
+        "total_shortwave_radiation_kwh_m2": 2638.842,
+        "total_sunshine_hours": 6030.39,
+        "wind_resource_score": 66.9,
+        "solar_resource_score": 60.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.449,
+          -45.738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Mossburn",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 4.027,
+        "mean_wind_speed_100m_ms": 6.577,
+        "p90_wind_speed_100m_ms": 13.57,
+        "max_wind_gust_10m_ms": 33.4,
+        "mean_shortwave_radiation_wm2": 149.171,
+        "total_shortwave_radiation_kwh_m2": 2617.056,
+        "total_sunshine_hours": 6077.0,
+        "wind_resource_score": 73.1,
+        "solar_resource_score": 59.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.24,
+          -45.67
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Te Anau",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 2.136,
+        "mean_wind_speed_100m_ms": 3.426,
+        "p90_wind_speed_100m_ms": 6.89,
+        "max_wind_gust_10m_ms": 23.9,
+        "mean_shortwave_radiation_wm2": 143.215,
+        "total_shortwave_radiation_kwh_m2": 2512.566,
+        "total_sunshine_hours": 5582.93,
+        "wind_resource_score": 38.1,
+        "solar_resource_score": 57.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          167.718,
+          -45.414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Bluff",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.509,
+        "mean_wind_speed_100m_ms": 8.303,
+        "p90_wind_speed_100m_ms": 14.22,
+        "max_wind_gust_10m_ms": 57.2,
+        "mean_shortwave_radiation_wm2": 147.724,
+        "total_shortwave_radiation_kwh_m2": 2591.664,
+        "total_sunshine_hours": 5866.03,
+        "wind_resource_score": 92.3,
+        "solar_resource_score": 59.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.333,
+          -46.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Riverton",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 3.997,
+        "mean_wind_speed_100m_ms": 6.424,
+        "p90_wind_speed_100m_ms": 11.43,
+        "max_wind_gust_10m_ms": 35.3,
+        "mean_shortwave_radiation_wm2": 145.712,
+        "total_shortwave_radiation_kwh_m2": 2556.371,
+        "total_sunshine_hours": 5835.19,
+        "wind_resource_score": 71.4,
+        "solar_resource_score": 58.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.017,
+          -46.35
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Waipapa Point",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.123,
+        "mean_wind_speed_100m_ms": 8.0,
+        "p90_wind_speed_100m_ms": 13.32,
+        "max_wind_gust_10m_ms": 49.6,
+        "mean_shortwave_radiation_wm2": 142.283,
+        "total_shortwave_radiation_kwh_m2": 2496.213,
+        "total_sunshine_hours": 5692.8,
+        "wind_resource_score": 88.9,
+        "solar_resource_score": 56.9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.84,
+          -46.66
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Oban Stewart Island",
+        "region": "Southland",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 5.095,
+        "mean_wind_speed_100m_ms": 7.816,
+        "p90_wind_speed_100m_ms": 13.3,
+        "max_wind_gust_10m_ms": 52.1,
+        "mean_shortwave_radiation_wm2": 130.771,
+        "total_shortwave_radiation_kwh_m2": 2294.249,
+        "total_sunshine_hours": 5097.46,
+        "wind_resource_score": 86.8,
+        "solar_resource_score": 52.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.13,
+          -46.9
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_name": "Chatham Islands",
+        "region": "Chatham Islands",
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31",
+        "hour_count": 17544,
+        "mean_wind_speed_10m_ms": 6.15,
+        "mean_wind_speed_100m_ms": 9.395,
+        "p90_wind_speed_100m_ms": 14.66,
+        "max_wind_gust_10m_ms": 36.1,
+        "mean_shortwave_radiation_wm2": 146.095,
+        "total_shortwave_radiation_kwh_m2": 2563.096,
+        "total_sunshine_hours": 5365.28,
+        "wind_resource_score": 100.0,
+        "solar_resource_score": 58.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -176.55,
+          -43.95
+        ]
+      }
+    }
+  ]
+}

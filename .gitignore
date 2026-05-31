@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+API.txt
+
+# GIS and generated data
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj
+*.qgz
+*.tif
+*.tiff
+*.zip
+data/raw/downloads/
+data/processed/cache/
+data/processed/weather_hourly_history.csv
+
+# Local runtime
+*.log
+.DS_Store
+Thumbs.db
+
+# Temporary extracted share page
+chatgpt_share.html

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NZ Renewable Energy Suitability Explorer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel" aria-label="Map controls">
+        <header class="brand">
+          <div>
+            <p class="eyebrow">New Zealand WebGIS</p>
+            <h1>Renewable Energy Suitability Explorer</h1>
+          </div>
+          <span class="status-pill" id="wms-status">Local data</span>
+        </header>
+
+        <section class="panel-section">
+          <label class="field-label" for="search-input">Search location</label>
+          <div class="search-row">
+            <input id="search-input" type="search" placeholder="Region, place, or project">
+            <button id="search-button" type="button">Search</button>
+          </div>
+        </section>
+
+        <section class="panel-section compact">
+          <div class="section-title">Suitability filters</div>
+          <label class="field-label" for="energy-filter">Energy type</label>
+          <select id="energy-filter">
+            <option value="all">All energy types</option>
+            <option value="wind">Wind</option>
+            <option value="solar">Solar</option>
+          </select>
+
+          <label class="field-label range-label" for="score-filter">
+            Minimum score <span id="score-value">70</span>
+          </label>
+          <input id="score-filter" type="range" min="0" max="100" value="70">
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">Layers</div>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="wind" checked>
+            <span>Wind suitability</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="solar" checked>
+            <span>Solar suitability</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="transmission" checked>
+            <span>Transmission lines</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="roads" checked>
+            <span>Road access corridors</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="protected" checked>
+            <span>Protected areas</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="gir" checked>
+            <span>GIR renewable mentions</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="weather" checked>
+            <span>Weather resource points</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="siteSelection" checked>
+            <span>Recommended sites</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" data-layer="heat">
+            <span>Suitability heatmap</span>
+          </label>
+          <label class="toggle-row wms-switch">
+            <input type="checkbox" id="wms-toggle">
+            <span>GeoServer WMS</span>
+          </label>
+        </section>
+
+        <section class="panel-section metrics-grid" aria-label="Dashboard metrics">
+          <div class="metric-card">
+            <span class="metric-value" id="metric-zones">0</span>
+            <span class="metric-label">Suitable zones</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" id="metric-top">0</span>
+            <span class="metric-label">Top score</span>
+          </div>
+        </section>
+
+        <section class="panel-section chart-section">
+          <div class="section-title">Dashboard</div>
+          <canvas id="score-chart" height="150"></canvas>
+          <canvas id="energy-chart" height="120"></canvas>
+        </section>
+
+        <section class="panel-section results-section">
+          <div class="section-title">Filtered results</div>
+          <div id="results-list" class="results-list"></div>
+        </section>
+      </aside>
+
+      <main class="map-stage">
+        <div id="map" aria-label="Renewable energy suitability map"></div>
+        <div class="map-topbar">
+          <button id="reset-view" type="button">Reset view</button>
+          <button id="export-visible" type="button">Export visible GeoJSON</button>
+        </div>
+        <div class="legend" aria-label="Map legend">
+          <div class="legend-title">Legend</div>
+          <div><span class="swatch wind"></span>Wind suitability</div>
+          <div><span class="swatch solar"></span>Solar suitability</div>
+          <div><span class="line-swatch transmission"></span>Transmission</div>
+          <div><span class="line-swatch roads"></span>Road access</div>
+          <div><span class="swatch protected"></span>Protected area</div>
+          <div><span class="dot-swatch gir"></span>GIR mention</div>
+          <div><span class="dot-swatch weather"></span>Weather resource</div>
+          <div><span class="dot-swatch site-selection"></span>Recommended site</div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

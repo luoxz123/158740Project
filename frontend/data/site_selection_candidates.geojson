@@ -1,0 +1,652 @@
+{
+  "type": "FeatureCollection",
+  "name": "site_selection_candidates",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Makara",
+        "region": "Wellington",
+        "final_score": 85.0,
+        "weather_resource_score": 100.0,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 100.0,
+        "distance_to_transmission_km": 0.68,
+        "mean_wind_speed_100m_ms": 9.297,
+        "p90_wind_speed_100m_ms": 15.25,
+        "total_shortwave_radiation_kwh_m2": 3144.798,
+        "total_sunshine_hours": 6632.88,
+        "nearest_weather_point": "Makara",
+        "nearest_weather_distance_km": 0.0,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "weather_point",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.706,
+          -41.223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Makara - Ohariu Valley corridor",
+        "region": "Wellington",
+        "final_score": 84.2,
+        "weather_resource_score": 98.8,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 97.8,
+        "distance_to_transmission_km": 2.38,
+        "mean_wind_speed_100m_ms": 9.038,
+        "p90_wind_speed_100m_ms": 14.723,
+        "total_shortwave_radiation_kwh_m2": 3088.9,
+        "total_sunshine_hours": 6600.69,
+        "nearest_weather_point": "Makara",
+        "nearest_weather_distance_km": 3.41,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7375,
+          -41.2035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Ohariu Valley",
+        "region": "Wellington",
+        "final_score": 83.8,
+        "weather_resource_score": 97.9,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 100.0,
+        "distance_to_transmission_km": 3.94,
+        "mean_wind_speed_100m_ms": 8.811,
+        "p90_wind_speed_100m_ms": 14.23,
+        "total_shortwave_radiation_kwh_m2": 3033.017,
+        "total_sunshine_hours": 6568.2,
+        "nearest_weather_point": "Ohariu Valley",
+        "nearest_weather_distance_km": 0.0,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "weather_point",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.769,
+          -41.184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Bluff",
+        "region": "Southland",
+        "final_score": 76.6,
+        "weather_resource_score": 92.3,
+        "grid_connection_score": 83.2,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 100.0,
+        "distance_to_transmission_km": 30.1,
+        "mean_wind_speed_100m_ms": 8.303,
+        "p90_wind_speed_100m_ms": 14.22,
+        "total_shortwave_radiation_kwh_m2": 2591.664,
+        "total_sunshine_hours": 5866.03,
+        "nearest_weather_point": "Bluff",
+        "nearest_weather_distance_km": 0.0,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "weather_point",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.333,
+          -46.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Riverton - Waipapa Point corridor",
+        "region": "Southland",
+        "final_score": 76.4,
+        "weather_resource_score": 88.2,
+        "grid_connection_score": 93.7,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 89.4,
+        "distance_to_transmission_km": 17.53,
+        "mean_wind_speed_100m_ms": 7.939,
+        "p90_wind_speed_100m_ms": 13.68,
+        "total_shortwave_radiation_kwh_m2": 2564.775,
+        "total_sunshine_hours": 5814.21,
+        "nearest_weather_point": "Bluff",
+        "nearest_weather_distance_km": 12.84,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.4285,
+          -46.505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Gore - Oban Stewart Island corridor",
+        "region": "Southland",
+        "final_score": 76.2,
+        "weather_resource_score": 86.3,
+        "grid_connection_score": 98.3,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 83.6,
+        "distance_to_transmission_km": 12.01,
+        "mean_wind_speed_100m_ms": 7.764,
+        "p90_wind_speed_100m_ms": 13.394,
+        "total_shortwave_radiation_kwh_m2": 2546.777,
+        "total_sunshine_hours": 5781.7,
+        "nearest_weather_point": "Bluff",
+        "nearest_weather_distance_km": 19.19,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.537,
+          -46.4995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Martinborough - Makara corridor",
+        "region": "Wellington",
+        "final_score": 75.3,
+        "weather_resource_score": 85.6,
+        "grid_connection_score": 97.6,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 77.0,
+        "distance_to_transmission_km": 12.93,
+        "mean_wind_speed_100m_ms": 7.769,
+        "p90_wind_speed_100m_ms": 13.327,
+        "total_shortwave_radiation_kwh_m2": 3044.259,
+        "total_sunshine_hours": 6518.73,
+        "nearest_weather_point": "Ohariu Valley",
+        "nearest_weather_distance_km": 26.55,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.0825,
+          -41.221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Martinborough - Ohariu Valley corridor",
+        "region": "Wellington",
+        "final_score": 74.4,
+        "weather_resource_score": 84.0,
+        "grid_connection_score": 97.7,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 74.9,
+        "distance_to_transmission_km": 12.78,
+        "mean_wind_speed_100m_ms": 7.618,
+        "p90_wind_speed_100m_ms": 13.152,
+        "total_shortwave_radiation_kwh_m2": 3029.89,
+        "total_sunshine_hours": 6485.7,
+        "nearest_weather_point": "Martinborough",
+        "nearest_weather_distance_km": 28.93,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.114,
+          -41.2015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Bluff - Waipapa Point corridor",
+        "region": "Southland",
+        "final_score": 74.1,
+        "weather_resource_score": 87.6,
+        "grid_connection_score": 87.1,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 83.2,
+        "distance_to_transmission_km": 25.45,
+        "mean_wind_speed_100m_ms": 7.885,
+        "p90_wind_speed_100m_ms": 13.457,
+        "total_shortwave_radiation_kwh_m2": 2528.815,
+        "total_sunshine_hours": 5741.79,
+        "nearest_weather_point": "Waipapa Point",
+        "nearest_weather_distance_km": 19.64,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.5865,
+          -46.63
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "wind",
+        "candidate_name": "Waipapa Point",
+        "region": "Southland",
+        "final_score": 73.9,
+        "weather_resource_score": 88.9,
+        "grid_connection_score": 79.9,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 100.0,
+        "distance_to_transmission_km": 34.1,
+        "mean_wind_speed_100m_ms": 8.0,
+        "p90_wind_speed_100m_ms": 13.32,
+        "total_shortwave_radiation_kwh_m2": 2496.213,
+        "total_sunshine_hours": 5692.8,
+        "nearest_weather_point": "Waipapa Point",
+        "nearest_weather_distance_km": 0.0,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "weather_point",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 10
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.84,
+          -46.66
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Rangiora - Darfield corridor",
+        "region": "Canterbury",
+        "final_score": 71.9,
+        "weather_resource_score": 68.4,
+        "grid_connection_score": 99.3,
+        "gir_evidence_score": 35.8,
+        "interpolation_confidence": 81.1,
+        "distance_to_transmission_km": 10.8,
+        "mean_wind_speed_100m_ms": 5.619,
+        "p90_wind_speed_100m_ms": 10.068,
+        "total_shortwave_radiation_kwh_m2": 3000.119,
+        "total_sunshine_hours": 6430.52,
+        "nearest_weather_point": "Darfield",
+        "nearest_weather_distance_km": 22.04,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.3535,
+          -43.3965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Amberley - Darfield corridor",
+        "region": "Canterbury",
+        "final_score": 71.7,
+        "weather_resource_score": 69.3,
+        "grid_connection_score": 95.7,
+        "gir_evidence_score": 35.1,
+        "interpolation_confidence": 88.1,
+        "distance_to_transmission_km": 15.14,
+        "mean_wind_speed_100m_ms": 5.502,
+        "p90_wind_speed_100m_ms": 10.136,
+        "total_shortwave_radiation_kwh_m2": 3040.217,
+        "total_sunshine_hours": 6516.01,
+        "nearest_weather_point": "Rangiora",
+        "nearest_weather_distance_km": 14.22,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.421,
+          -43.322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Darfield",
+        "region": "Canterbury",
+        "final_score": 71.3,
+        "weather_resource_score": 67.0,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 29.9,
+        "interpolation_confidence": 100.0,
+        "distance_to_transmission_km": 5.94,
+        "mean_wind_speed_100m_ms": 6.149,
+        "p90_wind_speed_100m_ms": 10.29,
+        "total_shortwave_radiation_kwh_m2": 2940.413,
+        "total_sunshine_hours": 6291.48,
+        "nearest_weather_point": "Darfield",
+        "nearest_weather_distance_km": 0.0,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "weather_point",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.112,
+          -43.489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Rangiora - Methven corridor",
+        "region": "Canterbury",
+        "final_score": 71.3,
+        "weather_resource_score": 67.0,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 30.0,
+        "interpolation_confidence": 98.8,
+        "distance_to_transmission_km": 6.83,
+        "mean_wind_speed_100m_ms": 6.134,
+        "p90_wind_speed_100m_ms": 10.276,
+        "total_shortwave_radiation_kwh_m2": 2940.822,
+        "total_sunshine_hours": 6292.82,
+        "nearest_weather_point": "Darfield",
+        "nearest_weather_distance_km": 2.38,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.1205,
+          -43.4685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Amberley - Methven corridor",
+        "region": "Canterbury",
+        "final_score": 71.2,
+        "weather_resource_score": 67.4,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 31.1,
+        "interpolation_confidence": 89.9,
+        "distance_to_transmission_km": 2.51,
+        "mean_wind_speed_100m_ms": 5.883,
+        "p90_wind_speed_100m_ms": 10.096,
+        "total_shortwave_radiation_kwh_m2": 2955.478,
+        "total_sunshine_hours": 6330.8,
+        "nearest_weather_point": "Darfield",
+        "nearest_weather_distance_km": 12.22,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.188,
+          -43.394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Rangiora - Ashburton corridor",
+        "region": "Canterbury",
+        "final_score": 71.1,
+        "weather_resource_score": 67.1,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 31.6,
+        "interpolation_confidence": 88.6,
+        "distance_to_transmission_km": 6.4,
+        "mean_wind_speed_100m_ms": 5.78,
+        "p90_wind_speed_100m_ms": 9.926,
+        "total_shortwave_radiation_kwh_m2": 2945.93,
+        "total_sunshine_hours": 6318.73,
+        "nearest_weather_point": "Darfield",
+        "nearest_weather_distance_km": 13.67,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.172,
+          -43.604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Rangiora",
+        "region": "Canterbury",
+        "final_score": 70.1,
+        "weather_resource_score": 70.2,
+        "grid_connection_score": 84.3,
+        "gir_evidence_score": 36.4,
+        "interpolation_confidence": 100.0,
+        "distance_to_transmission_km": 28.86,
+        "mean_wind_speed_100m_ms": 5.382,
+        "p90_wind_speed_100m_ms": 10.1,
+        "total_shortwave_radiation_kwh_m2": 3079.187,
+        "total_sunshine_hours": 6596.7,
+        "nearest_weather_point": "Rangiora",
+        "nearest_weather_distance_km": 0.0,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "weather_point",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.595,
+          -43.304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Culverden - Darfield corridor",
+        "region": "Canterbury",
+        "final_score": 69.8,
+        "weather_resource_score": 69.0,
+        "grid_connection_score": 94.0,
+        "gir_evidence_score": 28.4,
+        "interpolation_confidence": 82.6,
+        "distance_to_transmission_km": 17.2,
+        "mean_wind_speed_100m_ms": 5.629,
+        "p90_wind_speed_100m_ms": 10.385,
+        "total_shortwave_radiation_kwh_m2": 3025.402,
+        "total_sunshine_hours": 6485.57,
+        "nearest_weather_point": "Amberley",
+        "nearest_weather_distance_km": 20.4,
+        "gir_mentions_nearby": 1,
+        "gir_evidence_titles": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.481,
+          -43.1295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Raglan - Huntly corridor",
+        "region": "Waikato",
+        "final_score": 69.5,
+        "weather_resource_score": 73.2,
+        "grid_connection_score": 100.0,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 84.3,
+        "distance_to_transmission_km": 3.75,
+        "mean_wind_speed_100m_ms": 6.147,
+        "p90_wind_speed_100m_ms": 10.474,
+        "total_shortwave_radiation_kwh_m2": 3210.978,
+        "total_sunshine_hours": 6870.9,
+        "nearest_weather_point": "Raglan",
+        "nearest_weather_distance_km": 18.49,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "idw_midpoint",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.0155,
+          -37.6785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "energy_type": "solar",
+        "candidate_name": "Raglan",
+        "region": "Waikato",
+        "final_score": 69.4,
+        "weather_resource_score": 75.2,
+        "grid_connection_score": 92.2,
+        "gir_evidence_score": 0.0,
+        "interpolation_confidence": 100.0,
+        "distance_to_transmission_km": 19.38,
+        "mean_wind_speed_100m_ms": 6.591,
+        "p90_wind_speed_100m_ms": 11.36,
+        "total_shortwave_radiation_kwh_m2": 3299.173,
+        "total_sunshine_hours": 6910.33,
+        "nearest_weather_point": "Raglan",
+        "nearest_weather_distance_km": 0.0,
+        "gir_mentions_nearby": 0,
+        "gir_evidence_titles": "",
+        "candidate_source": "weather_point",
+        "score_formula": "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence",
+        "rank": 10
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.872,
+          -37.8
+        ]
+      }
+    }
+  ]
+}

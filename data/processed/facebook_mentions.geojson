@@ -1,0 +1,52 @@
+{
+  "type": "FeatureCollection",
+  "name": "renewable_energy_mentions",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-001",
+        "article_title": "Facebook sample renewable discussion",
+        "place_name": "Canterbury",
+        "latitude": -43.7542,
+        "longitude": 171.1637,
+        "energy_type": "mixed",
+        "source_url": "facebook://manual-sample",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.1637,
+          -43.7542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-002",
+        "article_title": "Facebook sample renewable discussion",
+        "place_name": "Taranaki",
+        "latitude": -39.3538,
+        "longitude": 174.4383,
+        "energy_type": "mixed",
+        "source_url": "facebook://manual-sample",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.4383,
+          -39.3538
+        ]
+      }
+    }
+  ]
+}

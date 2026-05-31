@@ -1,0 +1,472 @@
+{
+  "type": "FeatureCollection",
+  "name": "renewable_energy_mentions",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-001",
+        "article_title": "Contact Energy boss says risk of New Zealand running out of power this winter eases",
+        "place_name": "Christchurch",
+        "latitude": -43.5321,
+        "longitude": 172.6362,
+        "energy_type": "mixed",
+        "source_url": "https://www.rnz.co.nz/news/business/595686/contact-energy-boss-says-risk-of-new-zealand-running-out-of-power-this-winter-eases",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.6362,
+          -43.5321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-002",
+        "article_title": "Latest from Kurt Bayer - NZ Herald",
+        "place_name": "Canterbury",
+        "latitude": -43.7542,
+        "longitude": 171.1637,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/kurt-bayer",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.1637,
+          -43.7542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-003",
+        "article_title": "Latest from Kurt Bayer - NZ Herald",
+        "place_name": "Christchurch",
+        "latitude": -43.5321,
+        "longitude": 172.6362,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/kurt-bayer",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.6362,
+          -43.5321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-004",
+        "article_title": "Latest from Dan Ahwa - NZ Herald",
+        "place_name": "Auckland",
+        "latitude": -36.8509,
+        "longitude": 174.7645,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/dan-ahwa",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7645,
+          -36.8509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-005",
+        "article_title": "Latest from Lane Nichols - NZ Herald",
+        "place_name": "Auckland",
+        "latitude": -36.8509,
+        "longitude": 174.7645,
+        "energy_type": "solar",
+        "source_url": "https://nzherald.co.nz/author/lane-nichols",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7645,
+          -36.8509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-006",
+        "article_title": "Latest from Lane Nichols - NZ Herald",
+        "place_name": "Nelson",
+        "latitude": -41.2706,
+        "longitude": 173.284,
+        "energy_type": "solar",
+        "source_url": "https://nzherald.co.nz/author/lane-nichols",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.284,
+          -41.2706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-007",
+        "article_title": "Latest from Sam Hurley - NZ Herald",
+        "place_name": "Auckland",
+        "latitude": -36.8509,
+        "longitude": 174.7645,
+        "energy_type": "wind",
+        "source_url": "https://nzherald.co.nz/author/sam-hurley",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7645,
+          -36.8509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-008",
+        "article_title": "Latest from Sam Hurley - NZ Herald",
+        "place_name": "Waikato",
+        "latitude": -37.6191,
+        "longitude": 175.0233,
+        "energy_type": "wind",
+        "source_url": "https://nzherald.co.nz/author/sam-hurley",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.0233,
+          -37.6191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-009",
+        "article_title": "Latest from Eveline Harvey - NZ Herald",
+        "place_name": "Auckland",
+        "latitude": -36.8509,
+        "longitude": 174.7645,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/eveline-harvey",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7645,
+          -36.8509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-010",
+        "article_title": "Latest from Eveline Harvey - NZ Herald",
+        "place_name": "Canterbury",
+        "latitude": -43.7542,
+        "longitude": 171.1637,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/eveline-harvey",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.1637,
+          -43.7542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-011",
+        "article_title": "Latest from Eveline Harvey - NZ Herald",
+        "place_name": "Central Otago",
+        "latitude": -45.13,
+        "longitude": 169.6,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/eveline-harvey",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.6,
+          -45.13
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-012",
+        "article_title": "Latest from Eveline Harvey - NZ Herald",
+        "place_name": "Hawke's Bay",
+        "latitude": -39.4928,
+        "longitude": 176.912,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/eveline-harvey",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.912,
+          -39.4928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-013",
+        "article_title": "Latest from Eveline Harvey - NZ Herald",
+        "place_name": "Napier",
+        "latitude": -39.4928,
+        "longitude": 176.912,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/eveline-harvey",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.912,
+          -39.4928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-014",
+        "article_title": "Latest from Eveline Harvey - NZ Herald",
+        "place_name": "Otago",
+        "latitude": -45.4791,
+        "longitude": 170.1548,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/eveline-harvey",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.1548,
+          -45.4791
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-015",
+        "article_title": "Latest from Eveline Harvey - NZ Herald",
+        "place_name": "Queenstown",
+        "latitude": -45.0312,
+        "longitude": 168.6626,
+        "energy_type": "renewable",
+        "source_url": "https://nzherald.co.nz/author/eveline-harvey",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.6626,
+          -45.0312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-016",
+        "article_title": "Latest from Ophelia Buckleton - NZ Herald",
+        "place_name": "Auckland",
+        "latitude": -36.8509,
+        "longitude": 174.7645,
+        "energy_type": "solar",
+        "source_url": "https://nzherald.co.nz/author/ophelia-buckleton",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7645,
+          -36.8509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-017",
+        "article_title": "Latest from Ophelia Buckleton - NZ Herald",
+        "place_name": "West Coast",
+        "latitude": -42.4064,
+        "longitude": 171.6912,
+        "energy_type": "solar",
+        "source_url": "https://nzherald.co.nz/author/ophelia-buckleton",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.6912,
+          -42.4064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-018",
+        "article_title": "Latest from Matt Nippert - NZ Herald",
+        "place_name": "Auckland",
+        "latitude": -36.8509,
+        "longitude": 174.7645,
+        "energy_type": "wind",
+        "source_url": "https://nzherald.co.nz/author/matt-nippert",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7645,
+          -36.8509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-019",
+        "article_title": "Latest from Matt Nippert - NZ Herald",
+        "place_name": "Christchurch",
+        "latitude": -43.5321,
+        "longitude": 172.6362,
+        "energy_type": "wind",
+        "source_url": "https://nzherald.co.nz/author/matt-nippert",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.6362,
+          -43.5321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-020",
+        "article_title": "Latest from Matt Nippert - NZ Herald",
+        "place_name": "Invercargill",
+        "latitude": -46.4132,
+        "longitude": 168.3538,
+        "energy_type": "wind",
+        "source_url": "https://nzherald.co.nz/author/matt-nippert",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.3538,
+          -46.4132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-021",
+        "article_title": "Latest from Matt Nippert - NZ Herald",
+        "place_name": "Wellington",
+        "latitude": -41.2865,
+        "longitude": 174.7762,
+        "energy_type": "wind",
+        "source_url": "https://nzherald.co.nz/author/matt-nippert",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.7762,
+          -41.2865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-022",
+        "article_title": "Latest from Roger Moroney - NZ Herald",
+        "place_name": "Hawke's Bay",
+        "latitude": -39.4928,
+        "longitude": 176.912,
+        "energy_type": "solar",
+        "source_url": "https://nzherald.co.nz/author/roger-moroney",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.912,
+          -39.4928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-023",
+        "article_title": "Latest from Roger Moroney - NZ Herald",
+        "place_name": "Napier",
+        "latitude": -39.4928,
+        "longitude": 176.912,
+        "energy_type": "solar",
+        "source_url": "https://nzherald.co.nz/author/roger-moroney",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.912,
+          -39.4928
+        ]
+      }
+    }
+  ]
+}

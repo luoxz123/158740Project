@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "name": "transmission_lines",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "grid-001",
+        "name": "North Island Grid Backbone",
+        "voltage_kv": 220,
+        "operator": "Transpower"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [174.8, -36.9],
+          [175.2, -38.1],
+          [175.6, -39.2],
+          [175.7, -40.4]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "grid-002",
+        "name": "South Island Grid Backbone",
+        "voltage_kv": 220,
+        "operator": "Transpower"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [172.6, -41.3],
+          [172.2, -43.5],
+          [171.0, -44.4],
+          [169.6, -45.2],
+          [168.6, -46.4]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "grid-003",
+        "name": "Lower North Island Wellington Grid Corridor",
+        "voltage_kv": 220,
+        "operator": "Transpower"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [175.7, -40.4],
+          [175.45, -40.78],
+          [175.18, -41.02],
+          [174.95, -41.15],
+          [174.78, -41.22],
+          [174.7, -41.23]
+        ]
+      }
+    }
+  ]
+}

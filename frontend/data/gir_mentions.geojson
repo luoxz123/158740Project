@@ -1,0 +1,92 @@
+{
+  "type": "FeatureCollection",
+  "name": "renewable_energy_mentions",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-001",
+        "article_title": "Wind farm proposal discussed near Taranaki coast",
+        "place_name": "Taranaki",
+        "latitude": -39.3538,
+        "longitude": 174.4383,
+        "energy_type": "wind",
+        "source_url": "sample://rnz-wind-taranaki",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.4383,
+          -39.3538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-002",
+        "article_title": "Solar investment expands across Marlborough",
+        "place_name": "Marlborough",
+        "latitude": -41.5917,
+        "longitude": 173.7624,
+        "energy_type": "solar",
+        "source_url": "sample://stuff-solar-marlborough",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.7624,
+          -41.5917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-003",
+        "article_title": "Hawke's Bay councils review renewable energy zones",
+        "place_name": "Hawke's Bay",
+        "latitude": -39.4928,
+        "longitude": 176.912,
+        "energy_type": "solar",
+        "source_url": "sample://nzherald-solar-hawkes-bay",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.912,
+          -39.4928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gir-004",
+        "article_title": "Canterbury communities consider wind and solar projects",
+        "place_name": "Canterbury",
+        "latitude": -43.7542,
+        "longitude": 171.1637,
+        "energy_type": "mixed",
+        "source_url": "sample://rnz-renewable-canterbury",
+        "confidence": 0.95
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          171.1637,
+          -43.7542
+        ]
+      }
+    }
+  ]
+}

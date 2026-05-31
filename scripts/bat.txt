@@ -1,0 +1,4 @@
+py scripts\weather_history_pipeline.py --start-date 2024-01-01 --end-date 2024-12-31 --insert-db --db-dsn "host=localhost port=5432 dbname=renewable_nz user=postgres password=Postgres123"
+
+
+py scripts\gir_pipeline.py --auto-discover --offline-geocode --max-pages-per-site 20

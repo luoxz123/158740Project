@@ -1,0 +1,48 @@
+{
+  "type": "FeatureCollection",
+  "name": "roads",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "road-001",
+        "name": "State Highway 1 Sample Corridor",
+        "road_class": "State highway",
+        "data_source": "Sample access layer"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [174.78, -36.85],
+          [175.28, -38.68],
+          [175.62, -40.35],
+          [172.63, -43.53],
+          [170.50, -45.86]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "road-002",
+        "name": "Canterbury Access Corridor",
+        "road_class": "Regional road",
+        "data_source": "Sample access layer"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [171.80, -43.82],
+          [172.20, -43.72],
+          [172.65, -43.61]
+        ]
+      }
+    }
+  ]
+}
