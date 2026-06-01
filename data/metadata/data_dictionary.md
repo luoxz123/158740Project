@@ -34,6 +34,18 @@
 | `source_url` | Source article URL |
 | `confidence` | Simple confidence score for geocoding/source quality |
 
+## transmission_lines
+
+| Field | Description |
+|---|---|
+| `line_name` | Transpower line description or asset code |
+| `voltage_kv` | Design voltage in kV |
+| `operator_name` | Grid owner/operator, usually Transpower |
+| `data_source` | Data source attribution |
+| `geom` | Transmission line geometry stored as EPSG:2193 MultiLineString |
+
+The frontend version is generated from Transpower Open Data and contains WGS84 coordinates for Leaflet display. The source layer is the Transpower `TransmissionLines` FeatureServer, filtered to commissioned assets and simplified for browser performance.
+
 ## weather_resource_summary
 
 | Field | Description |

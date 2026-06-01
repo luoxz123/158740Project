@@ -34,19 +34,19 @@ if errorlevel 1 goto :fail
 call :find_psql
 if errorlevel 1 goto :fail
 
-echo [1/8] Installing Python dependencies...
+echo [1/9] Installing Python dependencies...
 "%PYTHON_EXE%" %PYTHON_ARGS% -m pip install --upgrade pip
 if errorlevel 1 goto :fail
 "%PYTHON_EXE%" %PYTHON_ARGS% -m pip install -r requirements.txt
 if errorlevel 1 goto :fail
 
 echo.
-echo [2/8] Checking PostgreSQL/PostGIS connection...
+echo [2/9] Checking PostgreSQL/PostGIS connection...
 "%PSQL_EXE%" -h "%DB_HOST%" -p "%DB_PORT%" -U "%DB_USER%" -d "%DB_NAME%" -v ON_ERROR_STOP=1 -c "CREATE EXTENSION IF NOT EXISTS postgis;"
 if errorlevel 1 goto :fail
 
 echo.
-echo [3/8] Rebuilding renewable_nz schema and sample layers...
+echo [3/9] Rebuilding renewable_nz schema and sample layers...
 "%PSQL_EXE%" -h "%DB_HOST%" -p "%DB_PORT%" -U "%DB_USER%" -d "%DB_NAME%" -v ON_ERROR_STOP=1 -f "database\schema.sql"
 if errorlevel 1 goto :fail
 "%PSQL_EXE%" -h "%DB_HOST%" -p "%DB_PORT%" -U "%DB_USER%" -d "%DB_NAME%" -v ON_ERROR_STOP=1 -f "database\sample_data.sql"
@@ -55,22 +55,27 @@ if errorlevel 1 goto :fail
 if errorlevel 1 goto :fail
 
 echo.
-echo [4/8] Importing processed weather, GIR, and recommended site data...
+echo [4/9] Importing Transpower transmission lines...
+"%PYTHON_EXE%" %PYTHON_ARGS% "scripts\import_transpower_lines.py" --insert-db --db-dsn "%DB_DSN%"
+if errorlevel 1 goto :fail
+
+echo.
+echo [5/9] Importing processed weather, GIR, and recommended site data...
 "%PYTHON_EXE%" %PYTHON_ARGS% "scripts\import_processed_data.py" --replace --db-dsn "%DB_DSN%"
 if errorlevel 1 goto :fail
 
 echo.
-echo [5/8] Recomputing top wind and solar candidate sites...
+echo [6/9] Recomputing top wind and solar candidate sites...
 "%PYTHON_EXE%" %PYTHON_ARGS% "scripts\site_selection_analysis.py" --insert-db --db-dsn "%DB_DSN%"
 if errorlevel 1 goto :fail
 
 echo.
-echo [6/8] Setting default database search_path...
+echo [7/9] Setting default database search_path...
 "%PSQL_EXE%" -h "%DB_HOST%" -p "%DB_PORT%" -U "%DB_USER%" -d "%DB_NAME%" -v ON_ERROR_STOP=1 -c "ALTER DATABASE %DB_NAME% SET search_path = renewable_nz, public;"
 if errorlevel 1 goto :fail
 
 echo.
-echo [7/8] Validating frontend GeoJSON files...
+echo [8/9] Validating frontend GeoJSON files...
 "%PYTHON_EXE%" %PYTHON_ARGS% "scripts\validate_geojson.py" ^
   "frontend\data\wind_suitability.geojson" ^
   "frontend\data\solar_suitability.geojson" ^
@@ -83,7 +88,7 @@ echo [7/8] Validating frontend GeoJSON files...
 if errorlevel 1 goto :fail
 
 echo.
-echo [8/8] Verifying database row counts...
+echo [9/9] Verifying database row counts...
 "%PSQL_EXE%" -h "%DB_HOST%" -p "%DB_PORT%" -U "%DB_USER%" -d "%DB_NAME%" -v ON_ERROR_STOP=1 -c "SELECT 'wind_suitability' AS layer, COUNT(*) FROM renewable_nz.wind_suitability UNION ALL SELECT 'solar_suitability', COUNT(*) FROM renewable_nz.solar_suitability UNION ALL SELECT 'transmission_lines', COUNT(*) FROM renewable_nz.transmission_lines UNION ALL SELECT 'roads', COUNT(*) FROM renewable_nz.roads UNION ALL SELECT 'protected_areas', COUNT(*) FROM renewable_nz.protected_areas UNION ALL SELECT 'gir_locations', COUNT(*) FROM renewable_nz.gir_locations UNION ALL SELECT 'weather_resource_summary', COUNT(*) FROM renewable_nz.weather_resource_summary UNION ALL SELECT 'site_selection_candidates', COUNT(*) FROM renewable_nz.site_selection_candidates ORDER BY layer;"
 if errorlevel 1 goto :fail
 

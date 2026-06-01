@@ -61,6 +61,8 @@ deploy_windows_vm.bat
 
 Detailed notes are in `doc/deployment/windows_vm_traditional.md`.
 
+The deployment also imports the Transpower Open Data transmission line layer from `data/raw/transpower_transmission_lines.geojson` and recomputes candidate sites against that network.
+
 ## Docker VM Deployment
 
 Docker deployment is optional. Use it only on a VM with enough memory. The repository includes a Docker Compose deployment that starts PostGIS, imports the processed project outputs, starts GeoServer, configures WMS layers, and serves the Leaflet frontend through Nginx.

@@ -15,6 +15,7 @@ Keep these deployment-critical files:
 - `scripts/`
 - `data/processed/weather_resource_summary.csv`
 - `data/processed/renewable_energy_mentions.geojson`
+- `data/raw/transpower_transmission_lines.geojson`
 - `frontend/data/*.geojson`
 - `requirements.txt`
 - `README.md`

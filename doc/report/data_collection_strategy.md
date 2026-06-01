@@ -75,6 +75,16 @@ py scripts\collect_project_data.py --gir-auto-discover --gir-offline-geocode --g
 
 GIR is for unstructured web text and public place mentions. Weather resource data is structured time-series evidence. Combining them into one scraper would make the project less reliable and less defensible. Keeping them separate gives the WebGIS two evidence layers: social/textual geographic evidence and physical resource evidence.
 
+## Supporting Infrastructure Data: Transpower Transmission Lines
+
+The project uses Transpower Open Data for the transmission network layer. The source is the public `TransmissionLines` ArcGIS FeatureServer, filtered to commissioned assets. The project keeps a raw GeoJSON copy in `data/raw/transpower_transmission_lines.geojson` and generates the frontend/PostGIS layer with:
+
+```powershell
+py scripts\import_transpower_lines.py --insert-db --db-dsn "host=localhost port=5432 dbname=renewable_nz user=postgres password=Postgres123"
+```
+
+The generated layer is simplified for browser and candidate-distance performance. The source attribution is `Transpower Open Data TransmissionLines FeatureServer (CC BY 4.0)`.
+
 ## Site Selection Screening
 
 Because paid VCSN bulk downloads are not suitable for the student project budget, final site screening can use the already collected 87-point weather resource dataset:

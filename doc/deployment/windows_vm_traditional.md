@@ -11,11 +11,12 @@ Use this path when the VM does not have enough memory for Docker.
 3. Connects to the existing `renewable_nz` database.
 4. Rebuilds the `renewable_nz` schema using `database/schema.sql`.
 5. Loads sample suitability, road, protected area, and transmission layers.
-6. Imports processed weather, GIR, and site-selection outputs.
-7. Recomputes the top 10 wind and top 10 solar candidate sites.
-8. Validates frontend GeoJSON files.
-9. Starts the frontend at `http://localhost:8000`.
-10. Configures GeoServer automatically if GeoServer is already running.
+6. Imports Transpower Open Data commissioned transmission lines.
+7. Imports processed weather, GIR, and site-selection outputs.
+8. Recomputes the top 10 wind and top 10 solar candidate sites.
+9. Validates frontend GeoJSON files.
+10. Starts the frontend at `http://localhost:8000`.
+11. Configures GeoServer automatically if GeoServer is already running.
 
 The script does not drop the whole database. It rebuilds tables inside the `renewable_nz` schema and leaves unrelated `public` tables alone.
 
