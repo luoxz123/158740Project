@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import urllib.parse
@@ -85,6 +86,41 @@ def parse_voltage(value: Any, symbol: str | None = None) -> int | None:
     return None
 
 
+def clean_point(point: Any) -> list[float] | None:
+    if not isinstance(point, list | tuple) or len(point) < 2:
+        return None
+    try:
+        lon = float(point[0])
+        lat = float(point[1])
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(lon) or not math.isfinite(lat):
+        return None
+    return [lon, lat]
+
+
+def same_point(first: list[float], second: list[float]) -> bool:
+    return abs(first[0] - second[0]) < 1e-12 and abs(first[1] - second[1]) < 1e-12
+
+
+def clean_line(coords: Any) -> list[list[float]] | None:
+    if not isinstance(coords, list):
+        return None
+
+    cleaned: list[list[float]] = []
+    for raw_point in coords:
+        point = clean_point(raw_point)
+        if point is None:
+            continue
+        if not cleaned or not same_point(cleaned[-1], point):
+            cleaned.append(point)
+
+    unique_points = {(point[0], point[1]) for point in cleaned}
+    if len(cleaned) < 2 or len(unique_points) < 2:
+        return None
+    return cleaned
+
+
 def point_segment_distance(point: list[float], start: list[float], end: list[float]) -> float:
     px, py = point
     ax, ay = start
@@ -121,23 +157,32 @@ def simplify_line(coords: list[list[float]], tolerance: float) -> list[list[floa
 
 
 def simplify_geometry(geometry: dict[str, Any], tolerance: float) -> dict[str, Any]:
-    if tolerance <= 0:
-        return geometry
-
     geom_type = geometry.get("type")
     coordinates = geometry.get("coordinates") or []
     if geom_type == "LineString":
-        return {**geometry, "coordinates": simplify_line(coordinates, tolerance)}
+        line = clean_line(coordinates)
+        if line is None:
+            return {}
+        simplified = simplify_line(line, tolerance) if tolerance > 0 else line
+        simplified = clean_line(simplified)
+        return {**geometry, "coordinates": simplified} if simplified else {}
     if geom_type == "MultiLineString":
+        lines = []
+        for line in coordinates:
+            cleaned = clean_line(line)
+            if cleaned is None:
+                continue
+            simplified = simplify_line(cleaned, tolerance) if tolerance > 0 else cleaned
+            simplified = clean_line(simplified)
+            if simplified:
+                lines.append(simplified)
+        if not lines:
+            return {}
         return {
             **geometry,
-            "coordinates": [
-                simplify_line(line, tolerance)
-                for line in coordinates
-                if isinstance(line, list) and len(line) >= 2
-            ],
+            "coordinates": lines,
         }
-    return geometry
+    return {}
 
 
 def feature_name(props: dict[str, Any]) -> str:
@@ -156,6 +201,10 @@ def normalise_features(source: dict[str, Any], simplify_tolerance: float) -> dic
         geometry = feature.get("geometry") or {}
         props = feature.get("properties") or {}
         if geometry.get("type") not in {"LineString", "MultiLineString"}:
+            continue
+
+        geometry = simplify_geometry(geometry, simplify_tolerance)
+        if not geometry:
             continue
 
         voltage = parse_voltage(props.get("designvolt"), props.get("Symbol"))
@@ -177,7 +226,7 @@ def normalise_features(source: dict[str, Any], simplify_tolerance: float) -> dic
                     "symbol": props.get("Symbol"),
                     "data_source": SOURCE_ATTRIBUTION,
                 },
-                "geometry": simplify_geometry(geometry, simplify_tolerance),
+                "geometry": geometry,
             }
         )
 
@@ -216,7 +265,16 @@ def insert_to_postgis(features: list[dict[str, Any]], db_dsn: str, schema: str) 
             %(voltage_kv)s,
             %(operator_name)s,
             %(data_source)s,
-            ST_Multi(ST_Transform(ST_SetSRID(ST_GeomFromGeoJSON(%(geometry)s), 4326), 2193))
+            ST_Multi(
+                ST_CollectionExtract(
+                    ST_MakeValid(
+                        ST_RemoveRepeatedPoints(
+                            ST_Transform(ST_SetSRID(ST_GeomFromGeoJSON(%(geometry)s), 4326), 2193)
+                        )
+                    ),
+                    2
+                )
+            )
         );
     """
 
