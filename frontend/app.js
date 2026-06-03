@@ -634,6 +634,7 @@ function arrowLineSvg(item, width) {
     <path class="rank-arrow ${type}"
       d="M ${startX.toFixed(1)} ${startY.toFixed(1)} C ${controlX.toFixed(1)} ${controlY.toFixed(1)}, ${isVerticalSide ? controlX.toFixed(1) : endX.toFixed(1)} ${isVerticalSide ? endY.toFixed(1) : controlY.toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}"
       marker-end="url(#rank-arrow-${type})" />
+    <circle class="rank-arrow-target ${type}" cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="5.2" />
   `;
 }
 

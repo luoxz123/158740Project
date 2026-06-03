@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NZ Renewable Energy Suitability Explorer</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="styles.css?v=20260603-boundary-callouts">
+    <link rel="stylesheet" href="styles.css?v=20260603-visible-arrows">
   </head>
   <body>
     <div class="app-shell">
@@ -39,7 +39,10 @@
             Minimum score <span id="score-value">70</span>
           </label>
           <input id="score-filter" type="range" min="0" max="100" value="70">
+        </section>
 
+        <section class="panel-section compact">
+          <div class="section-title">Display controls</div>
           <label class="field-label range-label" for="popup-opacity">
             Popup opacity <span id="popup-opacity-value">100%</span>
           </label>
@@ -139,6 +142,6 @@
     <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
     <script src="config.js"></script>
-    <script src="app.js?v=20260603-boundary-callouts"></script>
+    <script src="app.js?v=20260603-visible-arrows"></script>
   </body>
 </html>

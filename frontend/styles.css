@@ -461,11 +461,11 @@ input[type="range"] {
 }
 
 .rank-arrows {
-  z-index: 180;
+  z-index: 480;
 }
 
 .rank-callouts {
-  z-index: 530;
+  z-index: 490;
 }
 
 .rank-arrows {
@@ -487,6 +487,20 @@ input[type="range"] {
 }
 
 .rank-arrow.solar {
+  stroke: #f4a62a;
+}
+
+.rank-arrow-target {
+  fill: #fff;
+  stroke-width: 3;
+  opacity: 0.98;
+}
+
+.rank-arrow-target.wind {
+  stroke: #4f67b1;
+}
+
+.rank-arrow-target.solar {
   stroke: #f4a62a;
 }
 
@@ -525,14 +539,7 @@ input[type="range"] {
 }
 
 .map-stage.popup-active .rank-arrows {
-  z-index: 80;
-  opacity: 0.22;
-}
-
-.map-stage.popup-active .rank-callouts,
-.map-stage.popup-active .legend {
-  z-index: 120;
-  opacity: 0.28;
+  z-index: 480;
 }
 
 @media (max-width: 900px) {
