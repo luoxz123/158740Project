@@ -122,6 +122,24 @@ function popupRows(metrics) {
     .join("");
 }
 
+function fallbackPopupContent(error) {
+  console.error("Popup rendering failed", error);
+  return `
+    <div class="popup-title">Location details</div>
+    <div class="popup-grid">
+      <span>Status</span><strong>Unable to render popup content</strong>
+    </div>
+  `;
+}
+
+function safePopupContent(properties, type) {
+  try {
+    return popupContent(properties || {}, type);
+  } catch (error) {
+    return fallbackPopupContent(error);
+  }
+}
+
 function siteSelectionPopupContent(properties) {
   const energy = properties.energy_type || "site";
   const isSolar = energy === "solar";
@@ -349,7 +367,21 @@ function siteSelectionPointStyle(feature) {
 }
 
 function siteSelectionPoint(feature, latlng) {
-  return L.circleMarker(latlng, siteSelectionPointStyle(feature));
+  const marker = L.circleMarker(latlng, siteSelectionPointStyle(feature));
+  const props = feature.properties || {};
+  const type = props.energy_type === "solar" ? "solar" : "wind";
+
+  if (props.rank) {
+    marker.bindTooltip(`<span>${escapeHtml(props.rank)}</span>`, {
+      permanent: true,
+      direction: "top",
+      offset: [0, -14],
+      opacity: 1,
+      className: `site-rank-tooltip ${type}`
+    });
+  }
+
+  return marker;
 }
 
 function siteRankIcon(feature) {
@@ -380,7 +412,7 @@ function createSiteRankLayer() {
         riseOnHover: true
       });
       marker.feature = feature;
-      marker.bindPopup(() => popupContent(feature.properties || {}, "siteSelection"), {
+      marker.bindPopup(safePopupContent(feature.properties || {}, "siteSelection"), {
         minWidth: 305,
         maxWidth: 360
       });
@@ -398,10 +430,15 @@ function passesSuitabilityFilter(props) {
 }
 
 function bindCommonPopup(layer, type) {
-  layer.bindPopup(() => popupContent(layer.feature.properties || {}, type), type === "siteSelection" ? {
-    minWidth: 305,
-    maxWidth: 360
-  } : undefined);
+  const properties = layer.feature?.properties || {};
+  if (type === "siteSelection") {
+    layer.bindPopup(safePopupContent(properties, type), {
+      minWidth: 305,
+      maxWidth: 360
+    });
+  } else {
+    layer.bindPopup(() => safePopupContent(layer.feature.properties || {}, type));
+  }
   layer.on("mouseover", () => {
     if (!layer.setStyle) return;
     layer.setStyle({ weight: type === "gir" || type === "weather" ? 3 : 4 });

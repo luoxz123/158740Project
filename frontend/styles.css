@@ -329,10 +329,6 @@ input[type="range"] {
   min-width: 230px;
 }
 
-.leaflet-popup-content:has(.site-popup) {
-  margin: 12px;
-}
-
 .popup-title {
   font-weight: 800;
   margin-bottom: 4px;
@@ -460,6 +456,58 @@ input[type="range"] {
 }
 
 .site-rank-marker.solar span {
+  color: #3b2608;
+}
+
+.site-rank-tooltip {
+  --rank-color: #4f67b1;
+  width: 34px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.site-rank-tooltip::before {
+  display: none;
+}
+
+.site-rank-tooltip span {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--rank-color);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 7px 12px rgba(17, 24, 39, 0.28);
+}
+
+.site-rank-tooltip span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 3px;
+  height: 12px;
+  background: var(--rank-color);
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.site-rank-tooltip.solar {
+  --rank-color: #f4a62a;
+}
+
+.site-rank-tooltip.solar span {
   color: #3b2608;
 }
 
