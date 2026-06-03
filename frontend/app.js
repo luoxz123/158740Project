@@ -54,6 +54,12 @@ const map = L.map("map", {
 }).setView([-41.2, 172.7], 6);
 
 L.control.zoom({ position: "bottomleft" }).addTo(map);
+L.control.scale({
+  position: "bottomleft",
+  metric: true,
+  imperial: false,
+  maxWidth: 160
+}).addTo(map);
 
 const basemap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -71,6 +77,10 @@ panes.protected.style.zIndex = 360;
 panes.suitability.style.zIndex = 390;
 panes.network.style.zIndex = 430;
 panes.points.style.zIndex = 460;
+
+map.on("popupopen", (event) => {
+  setupDraggablePopup(event.popup);
+});
 
 function scoreColor(score, type) {
   if (type === "solar") {
@@ -138,6 +148,58 @@ function safePopupContent(properties, type) {
   } catch (error) {
     return fallbackPopupContent(error);
   }
+}
+
+function setupDraggablePopup(popup) {
+  setTimeout(() => {
+    const container = popup.getElement();
+    if (!container || container.dataset.draggablePopup === "true") return;
+
+    const handle = container.querySelector(".site-popup-title, .popup-title, .leaflet-popup-content-wrapper");
+    if (!handle) return;
+
+    container.dataset.draggablePopup = "true";
+    container.classList.add("draggable-popup");
+    handle.classList.add("popup-drag-handle");
+    handle.title = "Drag to move this popup";
+
+    let startMouse = null;
+    let startOffset = null;
+    let originalAutoPan = popup.options.autoPan;
+
+    const stopDrag = () => {
+      if (!startMouse) return;
+      startMouse = null;
+      startOffset = null;
+      popup.options.autoPan = originalAutoPan;
+      document.body.classList.remove("is-dragging-popup");
+      document.removeEventListener("mousemove", movePopup);
+      document.removeEventListener("mouseup", stopDrag);
+    };
+
+    const movePopup = (event) => {
+      if (!startMouse || !startOffset) return;
+      const dx = event.clientX - startMouse.x;
+      const dy = event.clientY - startMouse.y;
+      popup.options.offset = L.point(startOffset.x + dx, startOffset.y + dy);
+      popup.update();
+    };
+
+    handle.addEventListener("mousedown", (event) => {
+      if (event.button !== 0) return;
+      event.preventDefault();
+      event.stopPropagation();
+
+      const currentOffset = L.point(popup.options.offset || [0, 0]);
+      startMouse = { x: event.clientX, y: event.clientY };
+      startOffset = L.point(currentOffset.x || 0, currentOffset.y || 0);
+      originalAutoPan = popup.options.autoPan;
+      popup.options.autoPan = false;
+      document.body.classList.add("is-dragging-popup");
+      document.addEventListener("mousemove", movePopup);
+      document.addEventListener("mouseup", stopDrag);
+    });
+  }, 0);
 }
 
 function siteSelectionPopupContent(properties) {

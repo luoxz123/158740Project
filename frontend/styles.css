@@ -329,6 +329,33 @@ input[type="range"] {
   min-width: 230px;
 }
 
+.leaflet-popup-pane {
+  z-index: 900;
+}
+
+.leaflet-control-scale {
+  margin-left: 12px;
+  margin-bottom: 14px;
+}
+
+.leaflet-control-scale-line {
+  border-color: #17211b;
+  color: #17211b;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 14px rgba(23, 33, 27, 0.12);
+  font-weight: 700;
+}
+
+.popup-drag-handle {
+  cursor: grab;
+  user-select: none;
+}
+
+.is-dragging-popup,
+.is-dragging-popup * {
+  cursor: grabbing !important;
+}
+
 .popup-title {
   font-weight: 800;
   margin-bottom: 4px;
@@ -419,8 +446,15 @@ input[type="range"] {
 .rank-callouts {
   position: absolute;
   inset: 0;
-  z-index: 470;
   pointer-events: none;
+}
+
+.rank-arrows {
+  z-index: 440;
+}
+
+.rank-callouts {
+  z-index: 470;
 }
 
 .rank-arrows {
