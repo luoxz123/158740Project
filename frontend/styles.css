@@ -415,72 +415,44 @@ input[type="range"] {
   border-bottom: 3px solid #4f67b1;
 }
 
-.site-rank-marker {
-  --rank-color: #4f67b1;
-  position: relative;
-  width: 34px;
-  height: 44px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  filter: drop-shadow(0 7px 12px rgba(17, 24, 39, 0.28));
-}
-
-.site-rank-marker span {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: var(--rank-color);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 900;
-}
-
-.site-rank-marker::after {
-  content: "";
+.rank-arrows,
+.rank-callouts {
   position: absolute;
-  left: 50%;
-  bottom: 2px;
-  width: 3px;
-  height: 13px;
-  background: var(--rank-color);
-  border-radius: 999px;
-  transform: translateX(-50%);
-}
-
-.site-rank-marker.solar {
-  --rank-color: #f4a62a;
-}
-
-.site-rank-marker.solar span {
-  color: #3b2608;
-}
-
-.site-rank-tooltip {
-  --rank-color: #4f67b1;
-  width: 34px;
-  height: 44px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
+  inset: 0;
+  z-index: 470;
   pointer-events: none;
 }
 
-.site-rank-tooltip::before {
-  display: none;
+.rank-arrows {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.site-rank-tooltip span {
-  position: relative;
-  width: 32px;
-  height: 32px;
+.rank-arrow {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.88;
+}
+
+.rank-arrow.wind {
+  stroke: #4f67b1;
+}
+
+.rank-arrow.solar {
+  stroke: #f4a62a;
+}
+
+.rank-callout {
+  --rank-color: #4f67b1;
+  position: absolute;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
+  padding: 0;
   border: 2px solid #fff;
   border-radius: 50%;
   background: var(--rank-color);
@@ -488,27 +460,23 @@ input[type="range"] {
   font-size: 14px;
   font-weight: 900;
   line-height: 1;
-  box-shadow: 0 7px 12px rgba(17, 24, 39, 0.28);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.28);
+  pointer-events: auto;
 }
 
-.site-rank-tooltip span::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -12px;
-  width: 3px;
-  height: 12px;
+.rank-callout:hover {
+  transform: scale(1.08);
   background: var(--rank-color);
-  border-radius: 999px;
-  transform: translateX(-50%);
+  border-color: #fff;
 }
 
-.site-rank-tooltip.solar {
+.rank-callout.solar {
   --rank-color: #f4a62a;
+  color: #3b2608;
 }
 
-.site-rank-tooltip.solar span {
-  color: #3b2608;
+.rank-callout.wind {
+  --rank-color: #4f67b1;
 }
 
 @media (max-width: 900px) {

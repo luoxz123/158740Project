@@ -27,7 +27,7 @@ const state = {
   data: {},
   localLayers: {},
   wmsLayers: {},
-  rankLayer: null,
+  rankCallouts: null,
   heatLayer: null,
   charts: {},
   filters: {
@@ -367,59 +367,7 @@ function siteSelectionPointStyle(feature) {
 }
 
 function siteSelectionPoint(feature, latlng) {
-  const marker = L.circleMarker(latlng, siteSelectionPointStyle(feature));
-  const props = feature.properties || {};
-  const type = props.energy_type === "solar" ? "solar" : "wind";
-
-  if (props.rank) {
-    marker.bindTooltip(`<span>${escapeHtml(props.rank)}</span>`, {
-      permanent: true,
-      direction: "top",
-      offset: [0, -14],
-      opacity: 1,
-      className: `site-rank-tooltip ${type}`
-    });
-  }
-
-  return marker;
-}
-
-function siteRankIcon(feature) {
-  const props = feature.properties || {};
-  const type = props.energy_type === "solar" ? "solar" : "wind";
-  return L.divIcon({
-    className: "",
-    iconSize: [34, 44],
-    iconAnchor: [17, 44],
-    popupAnchor: [0, -42],
-    html: `
-      <div class="site-rank-marker ${type}" title="${escapeHtml(titleCase(type))} recommended site rank ${escapeHtml(props.rank || "")}">
-        <span>${escapeHtml(props.rank || "")}</span>
-      </div>
-    `
-  });
-}
-
-function createSiteRankLayer() {
-  const markers = (state.data.siteSelection.features || [])
-    .filter((feature) => feature.geometry?.type === "Point")
-    .map((feature) => {
-      const [lng, lat] = feature.geometry.coordinates;
-      const marker = L.marker([lat, lng], {
-        icon: siteRankIcon(feature),
-        pane: "points-pane",
-        zIndexOffset: 900,
-        riseOnHover: true
-      });
-      marker.feature = feature;
-      marker.bindPopup(safePopupContent(feature.properties || {}, "siteSelection"), {
-        minWidth: 305,
-        maxWidth: 360
-      });
-      return marker;
-    });
-
-  state.rankLayer = L.layerGroup(markers);
+  return L.circleMarker(latlng, siteSelectionPointStyle(feature));
 }
 
 function passesSuitabilityFilter(props) {
@@ -453,6 +401,169 @@ function bindCommonPopup(layer, type) {
       else if (type === "siteSelection") layer.setStyle(siteSelectionPointStyle(layer.feature));
       else layer.setStyle(suitabilityStyle(layer.feature));
     }
+  });
+}
+
+function setupSiteRankCallouts() {
+  state.rankCallouts = {
+    container: document.getElementById("rank-callouts"),
+    arrows: document.getElementById("rank-arrows")
+  };
+
+  map.on("moveend zoomend resize", updateSiteRankCallouts);
+}
+
+function siteSelectionCalloutFeatures() {
+  if (!state.visible.siteSelection || !state.rankCallouts) return [];
+
+  return (state.data.siteSelection.features || [])
+    .filter((feature) => feature.geometry?.type === "Point")
+    .filter((feature) => {
+      const props = feature.properties || {};
+      return state.filters.energy === "all" || props.energy_type === state.filters.energy;
+    })
+    .map((feature) => {
+      const [lng, lat] = feature.geometry.coordinates;
+      const latLng = L.latLng(lat, lng);
+      const point = map.latLngToContainerPoint(latLng);
+      return { feature, latLng, point };
+    })
+    .filter(({ point }) => {
+      const size = map.getSize();
+      return point.x >= 0 && point.x <= size.x && point.y >= 0 && point.y <= size.y;
+    })
+    .sort((a, b) => {
+      const typeOrder = (a.feature.properties.energy_type || "").localeCompare(b.feature.properties.energy_type || "");
+      if (typeOrder !== 0) return typeOrder;
+      return Number(a.feature.properties.rank || 0) - Number(b.feature.properties.rank || 0);
+    });
+}
+
+function distributeCalloutPositions(items, height, side) {
+  const top = 76;
+  const gap = 36;
+  const reserveBottom = side === "right" && window.innerWidth > 900 ? 260 : 88;
+  const minBottom = top + Math.max(0, items.length - 1) * gap;
+  const bottom = Math.min(height - 88, Math.max(98, height - reserveBottom, minBottom));
+  const sorted = items
+    .slice()
+    .sort((a, b) => a.point.y - b.point.y)
+    .map((item) => ({
+      ...item,
+      calloutY: Math.max(top, Math.min(bottom, item.point.y))
+    }));
+
+  for (let index = 1; index < sorted.length; index += 1) {
+    sorted[index].calloutY = Math.max(sorted[index].calloutY, sorted[index - 1].calloutY + gap);
+  }
+
+  for (let index = sorted.length - 2; index >= 0; index -= 1) {
+    sorted[index].calloutY = Math.min(sorted[index].calloutY, sorted[index + 1].calloutY - gap);
+  }
+
+  const overflow = sorted.length ? sorted[sorted.length - 1].calloutY - bottom : 0;
+  if (overflow > 0) {
+    sorted.forEach((item) => {
+      item.calloutY = Math.max(top, item.calloutY - overflow);
+    });
+  }
+
+  return sorted;
+}
+
+function openSiteSelectionPopup(feature, latLng) {
+  if (!map.getBounds().contains(latLng)) map.panTo(latLng);
+
+  const layer = findPointLayer("siteSelection", feature);
+  if (layer && map.hasLayer(state.localLayers.siteSelection)) {
+    layer.openPopup();
+    return;
+  }
+
+  L.popup({ minWidth: 305, maxWidth: 360 })
+    .setLatLng(latLng)
+    .setContent(safePopupContent(feature.properties || {}, "siteSelection"))
+    .openOn(map);
+}
+
+function arrowLineSvg(item, width) {
+  const props = item.feature.properties || {};
+  const side = item.side;
+  const type = props.energy_type === "solar" ? "solar" : "wind";
+  const startX = side === "left" ? 50 : width - 50;
+  const startY = item.calloutY;
+  const endX = item.point.x;
+  const endY = item.point.y;
+  const controlX = side === "left" ? Math.min(endX - 28, startX + 95) : Math.max(endX + 28, startX - 95);
+
+  return `
+    <path class="rank-arrow ${type}"
+      d="M ${startX.toFixed(1)} ${startY.toFixed(1)} C ${controlX.toFixed(1)} ${startY.toFixed(1)}, ${controlX.toFixed(1)} ${endY.toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}"
+      marker-end="url(#rank-arrow-${type})" />
+  `;
+}
+
+function updateSiteRankCallouts() {
+  if (!state.rankCallouts) return;
+
+  const { container, arrows } = state.rankCallouts;
+  if (!container || !arrows) return;
+
+  container.innerHTML = "";
+  arrows.innerHTML = "";
+
+  if (!state.visible.siteSelection) {
+    container.hidden = true;
+    arrows.hidden = true;
+    return;
+  }
+
+  const size = map.getSize();
+  const features = siteSelectionCalloutFeatures();
+  const left = [];
+  const right = [];
+
+  features.forEach((item) => {
+    const type = item.feature.properties?.energy_type;
+    const side = state.filters.energy === "all"
+      ? (type === "solar" ? "right" : "left")
+      : (item.point.x < size.x / 2 ? "left" : "right");
+    (side === "left" ? left : right).push({ ...item, side });
+  });
+
+  const positioned = [
+    ...distributeCalloutPositions(left, size.y, "left"),
+    ...distributeCalloutPositions(right, size.y, "right")
+  ];
+
+  container.hidden = positioned.length === 0;
+  arrows.hidden = positioned.length === 0;
+  arrows.setAttribute("viewBox", `0 0 ${size.x} ${size.y}`);
+
+  arrows.innerHTML = `
+    <defs>
+      <marker id="rank-arrow-wind" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+        <path d="M 0 0 L 8 4 L 0 8 z" fill="#4f67b1"></path>
+      </marker>
+      <marker id="rank-arrow-solar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+        <path d="M 0 0 L 8 4 L 0 8 z" fill="#f4a62a"></path>
+      </marker>
+    </defs>
+    ${positioned.map((item) => arrowLineSvg(item, size.x)).join("")}
+  `;
+
+  positioned.forEach((item) => {
+    const props = item.feature.properties || {};
+    const type = props.energy_type === "solar" ? "solar" : "wind";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `rank-callout ${type} ${item.side}`;
+    button.style.left = `${item.side === "left" ? 16 : size.x - 52}px`;
+    button.style.top = `${item.calloutY - 18}px`;
+    button.title = `${titleCase(type)} rank ${props.rank}: ${props.candidate_name || "Recommended site"}`;
+    button.innerHTML = `<span>${escapeHtml(props.rank || "")}</span>`;
+    button.addEventListener("click", () => openSiteSelectionPopup(item.feature, item.latLng));
+    container.appendChild(button);
   });
 }
 
@@ -502,8 +613,6 @@ function createLocalLayers() {
     pointToLayer: siteSelectionPoint,
     onEachFeature: (feature, layer) => bindCommonPopup(layer, "siteSelection")
   });
-
-  createSiteRankLayer();
 }
 
 function createWmsLayers() {
@@ -563,7 +672,6 @@ function refreshLayers() {
   Object.values(inactive).forEach((layer) => {
     if (map.hasLayer(layer)) map.removeLayer(layer);
   });
-  if (state.rankLayer && map.hasLayer(state.rankLayer)) map.removeLayer(state.rankLayer);
 
   ["protected", "wind", "solar", "transmission", "roads", "gir", "weather", "siteSelection"].forEach((name) => {
     const layer = source[name];
@@ -575,8 +683,6 @@ function refreshLayers() {
     }
   });
 
-  if (state.rankLayer && state.visible.siteSelection) state.rankLayer.addTo(map);
-
   if (!state.useWms) {
     ["wind", "solar"].forEach((name) => state.localLayers[name].setStyle(suitabilityStyle));
   }
@@ -584,6 +690,7 @@ function refreshLayers() {
   buildHeatLayer();
   updateDashboard();
   updateResults();
+  updateSiteRankCallouts();
   document.getElementById("wms-status").textContent = state.useWms ? "GeoServer WMS" : "Local data";
 }
 
@@ -817,6 +924,7 @@ async function init() {
   await Promise.all(Object.entries(CONFIG.dataFiles).map(([name, path]) => loadGeoJson(name, path)));
   createLocalLayers();
   createWmsLayers();
+  setupSiteRankCallouts();
   attachEvents();
   refreshLayers();
   map.fitBounds(CONFIG.nzBounds, { padding: [20, 20] });
