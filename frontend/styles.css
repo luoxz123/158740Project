@@ -321,12 +321,16 @@ input[type="range"] {
 }
 
 .dot-swatch.site-selection {
-  background: #4f67b1;
+  background: linear-gradient(135deg, #4f67b1 0 50%, #f4a62a 50% 100%);
   border: 2px solid #111827;
 }
 
 .leaflet-popup-content {
   min-width: 230px;
+}
+
+.leaflet-popup-content:has(.site-popup) {
+  margin: 12px;
 }
 
 .popup-title {
@@ -348,6 +352,115 @@ input[type="range"] {
 .popup-chart {
   margin-top: 10px;
   height: 72px;
+}
+
+.site-popup {
+  width: 318px;
+  max-height: min(560px, 72vh);
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.site-popup-title {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: -2px 0 4px;
+  padding: 2px 0 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.site-popup-grid {
+  display: grid;
+  grid-template-columns: minmax(142px, 1fr) minmax(92px, auto);
+}
+
+.site-popup-grid span,
+.site-popup-grid strong,
+.site-popup-formula span,
+.site-popup-formula strong {
+  border-top: 1px solid #e8eee9;
+  padding: 10px 0;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.site-popup-grid span,
+.site-popup-formula span {
+  color: #60717a;
+}
+
+.site-popup-grid strong {
+  color: #162029;
+  text-align: right;
+  font-weight: 800;
+}
+
+.site-popup-formula {
+  display: grid;
+  border-bottom: 1px solid #e8eee9;
+}
+
+.site-popup-formula strong {
+  padding-top: 0;
+  color: #162029;
+  font-weight: 800;
+}
+
+.site-popup.solar .site-popup-title {
+  border-bottom: 3px solid #f4a62a;
+}
+
+.site-popup.wind .site-popup-title {
+  border-bottom: 3px solid #4f67b1;
+}
+
+.site-rank-marker {
+  --rank-color: #4f67b1;
+  position: relative;
+  width: 34px;
+  height: 44px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  filter: drop-shadow(0 7px 12px rgba(17, 24, 39, 0.28));
+}
+
+.site-rank-marker span {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--rank-color);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.site-rank-marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 3px;
+  height: 13px;
+  background: var(--rank-color);
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.site-rank-marker.solar {
+  --rank-color: #f4a62a;
+}
+
+.site-rank-marker.solar span {
+  color: #3b2608;
 }
 
 @media (max-width: 900px) {

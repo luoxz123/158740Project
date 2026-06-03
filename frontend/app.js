@@ -27,6 +27,7 @@ const state = {
   data: {},
   localLayers: {},
   wmsLayers: {},
+  rankLayer: null,
   heatLayer: null,
   charts: {},
   filters: {
@@ -88,41 +89,92 @@ function getFeatureCenter(feature) {
   return bounds.isValid() ? bounds.getCenter() : null;
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function titleCase(value) {
+  return String(value || "n/a").replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function formatNumber(value, digits = 2) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "n/a";
+  return number.toLocaleString(undefined, {
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits
+  });
+}
+
+function formatOptionalNumber(value, digits = 2, suffix = "") {
+  const formatted = formatNumber(value, digits);
+  return formatted === "n/a" ? formatted : `${formatted}${suffix}`;
+}
+
+function popupRows(metrics) {
+  return metrics
+    .map(([key, value]) => `<span>${escapeHtml(key)}</span><strong>${escapeHtml(value)}</strong>`)
+    .join("");
+}
+
+function siteSelectionPopupContent(properties) {
+  const energy = properties.energy_type || "site";
+  const isSolar = energy === "solar";
+  const title = properties.candidate_name || "Recommended site";
+  const resourceRows = isSolar
+    ? [
+        ["Shortwave radiation", formatOptionalNumber(properties.total_shortwave_radiation_kwh_m2, 1, " kWh/m2")],
+        ["Sunshine hours", formatOptionalNumber(properties.total_sunshine_hours, 1)]
+      ]
+    : [
+        ["Mean wind speed 100 m", formatOptionalNumber(properties.mean_wind_speed_100m_ms, 2, " m/s")],
+        ["P90 wind speed 100 m", formatOptionalNumber(properties.p90_wind_speed_100m_ms, 2, " m/s")]
+      ];
+
+  const metrics = [
+    ["Rank", properties.rank || "n/a"],
+    ["Energy type", titleCase(energy)],
+    ["Region", properties.region || "n/a"],
+    ["Final score", formatNumber(properties.final_score, 2)],
+    ["Weather resource score", formatNumber(properties.weather_resource_score, 2)],
+    ["Grid connection score", formatNumber(properties.grid_connection_score, 2)],
+    ["GIR evidence score", formatNumber(properties.gir_evidence_score, 2)],
+    ["Distance to transmission", formatOptionalNumber(properties.distance_to_transmission_km, 2, " km")],
+    ...resourceRows,
+    ["GIR mentions nearby", properties.gir_mentions_nearby ?? "0"]
+  ];
+
+  return `
+    <div class="site-popup ${isSolar ? "solar" : "wind"}">
+      <div class="site-popup-title">${escapeHtml(title)}</div>
+      <div class="site-popup-grid">${popupRows(metrics)}</div>
+      <div class="site-popup-formula">
+        <span>Score formula</span>
+        <strong>${escapeHtml(properties.score_formula || "55% resource + 25% transmission proximity + 15% GIR evidence + 5% interpolation confidence")}</strong>
+      </div>
+    </div>
+  `;
+}
+
 function popupContent(properties, type) {
   if (type === "roads") {
     const metrics = [
       ["Class", properties.road_class || "n/a"],
       ["Source", properties.data_source || "n/a"]
     ];
-    const rows = metrics.map(([key, value]) => `<span>${key}</span><strong>${value}</strong>`).join("");
     return `
-      <div class="popup-title">${properties.name || properties.road_name || "Road corridor"}</div>
-      <div class="popup-grid">${rows}</div>
+      <div class="popup-title">${escapeHtml(properties.name || properties.road_name || "Road corridor")}</div>
+      <div class="popup-grid">${popupRows(metrics)}</div>
     `;
   }
 
   if (type === "siteSelection") {
-    const label = properties.candidate_name || "Recommended site";
-    const score = Number(properties.final_score || 0);
-    const energy = properties.energy_type || "site";
-    const chartId = `popup-chart-${Math.random().toString(36).slice(2)}`;
-    const metrics = [
-      ["Energy", energy],
-      ["Rank", properties.rank || "n/a"],
-      ["Final score", properties.final_score || "n/a"],
-      ["Resource", properties.weather_resource_score || "n/a"],
-      ["Grid distance", properties.distance_to_transmission_km ? `${properties.distance_to_transmission_km} km` : "n/a"],
-      ["GIR evidence", properties.gir_evidence_score || "n/a"]
-    ];
-    const rows = metrics.map(([key, value]) => `<span>${key}</span><strong>${value}</strong>`).join("");
-
-    setTimeout(() => renderPopupChart(chartId, score, energy), 40);
-
-    return `
-      <div class="popup-title">${label}</div>
-      <div class="popup-grid">${rows}</div>
-      <canvas id="${chartId}" class="popup-chart"></canvas>
-    `;
+    return siteSelectionPopupContent(properties);
   }
 
   if (type === "weather") {
@@ -138,13 +190,12 @@ function popupContent(properties, type) {
       ["Sunshine", properties.total_sunshine_hours ? `${properties.total_sunshine_hours} h` : "n/a"],
       ["Solar radiation", properties.total_shortwave_radiation_kwh_m2 ? `${properties.total_shortwave_radiation_kwh_m2} kWh/m2` : "n/a"]
     ];
-    const rows = metrics.map(([key, value]) => `<span>${key}</span><strong>${value}</strong>`).join("");
 
     setTimeout(() => renderPopupChart(chartId, combinedScore, "weather"), 40);
 
     return `
-      <div class="popup-title">${label}</div>
-      <div class="popup-grid">${rows}</div>
+      <div class="popup-title">${escapeHtml(label)}</div>
+      <div class="popup-grid">${popupRows(metrics)}</div>
       <canvas id="${chartId}" class="popup-chart"></canvas>
     `;
   }
@@ -161,14 +212,13 @@ function popupContent(properties, type) {
     ["Constraint", properties.constraint_level || properties.status || "n/a"]
   ];
 
-  const rows = metrics.map(([key, value]) => `<span>${key}</span><strong>${value}</strong>`).join("");
   const chart = typeof score === "number" ? `<canvas id="${chartId}" class="popup-chart"></canvas>` : "";
 
   setTimeout(() => renderPopupChart(chartId, Number(score), energy), 40);
 
   return `
-    <div class="popup-title">${label}</div>
-    <div class="popup-grid">${rows}</div>
+    <div class="popup-title">${escapeHtml(label)}</div>
+    <div class="popup-grid">${popupRows(metrics)}</div>
     ${chart}
   `;
 }
@@ -302,6 +352,44 @@ function siteSelectionPoint(feature, latlng) {
   return L.circleMarker(latlng, siteSelectionPointStyle(feature));
 }
 
+function siteRankIcon(feature) {
+  const props = feature.properties || {};
+  const type = props.energy_type === "solar" ? "solar" : "wind";
+  return L.divIcon({
+    className: "",
+    iconSize: [34, 44],
+    iconAnchor: [17, 44],
+    popupAnchor: [0, -42],
+    html: `
+      <div class="site-rank-marker ${type}" title="${escapeHtml(titleCase(type))} recommended site rank ${escapeHtml(props.rank || "")}">
+        <span>${escapeHtml(props.rank || "")}</span>
+      </div>
+    `
+  });
+}
+
+function createSiteRankLayer() {
+  const markers = (state.data.siteSelection.features || [])
+    .filter((feature) => feature.geometry?.type === "Point")
+    .map((feature) => {
+      const [lng, lat] = feature.geometry.coordinates;
+      const marker = L.marker([lat, lng], {
+        icon: siteRankIcon(feature),
+        pane: "points-pane",
+        zIndexOffset: 900,
+        riseOnHover: true
+      });
+      marker.feature = feature;
+      marker.bindPopup(() => popupContent(feature.properties || {}, "siteSelection"), {
+        minWidth: 305,
+        maxWidth: 360
+      });
+      return marker;
+    });
+
+  state.rankLayer = L.layerGroup(markers);
+}
+
 function passesSuitabilityFilter(props) {
   const type = props.energy_type;
   const score = props.suitability_score || 0;
@@ -310,7 +398,10 @@ function passesSuitabilityFilter(props) {
 }
 
 function bindCommonPopup(layer, type) {
-  layer.bindPopup(() => popupContent(layer.feature.properties || {}, type));
+  layer.bindPopup(() => popupContent(layer.feature.properties || {}, type), type === "siteSelection" ? {
+    minWidth: 305,
+    maxWidth: 360
+  } : undefined);
   layer.on("mouseover", () => {
     if (!layer.setStyle) return;
     layer.setStyle({ weight: type === "gir" || type === "weather" ? 3 : 4 });
@@ -374,6 +465,8 @@ function createLocalLayers() {
     pointToLayer: siteSelectionPoint,
     onEachFeature: (feature, layer) => bindCommonPopup(layer, "siteSelection")
   });
+
+  createSiteRankLayer();
 }
 
 function createWmsLayers() {
@@ -433,6 +526,7 @@ function refreshLayers() {
   Object.values(inactive).forEach((layer) => {
     if (map.hasLayer(layer)) map.removeLayer(layer);
   });
+  if (state.rankLayer && map.hasLayer(state.rankLayer)) map.removeLayer(state.rankLayer);
 
   ["protected", "wind", "solar", "transmission", "roads", "gir", "weather", "siteSelection"].forEach((name) => {
     const layer = source[name];
@@ -443,6 +537,8 @@ function refreshLayers() {
       map.removeLayer(layer);
     }
   });
+
+  if (state.rankLayer && state.visible.siteSelection) state.rankLayer.addTo(map);
 
   if (!state.useWms) {
     ["wind", "solar"].forEach((name) => state.localLayers[name].setStyle(suitabilityStyle));
