@@ -32,7 +32,8 @@ const state = {
   charts: {},
   filters: {
     energy: "all",
-    minScore: 70
+    minScore: 70,
+    popupOpacity: 1
   },
   visible: {
     wind: true,
@@ -79,7 +80,12 @@ panes.network.style.zIndex = 430;
 panes.points.style.zIndex = 460;
 
 map.on("popupopen", (event) => {
+  document.querySelector(".map-stage")?.classList.add("popup-active");
   setupDraggablePopup(event.popup);
+});
+
+map.on("popupclose", () => {
+  document.querySelector(".map-stage")?.classList.remove("popup-active");
 });
 
 function scoreColor(score, type) {
@@ -97,6 +103,10 @@ function getFeatureCenter(feature) {
   const temp = L.geoJSON(feature);
   const bounds = temp.getBounds();
   return bounds.isValid() ? bounds.getCenter() : null;
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
 }
 
 function escapeHtml(value) {
@@ -501,32 +511,88 @@ function siteSelectionCalloutFeatures() {
     });
 }
 
-function distributeCalloutPositions(items, height, side) {
-  const top = 76;
-  const gap = 36;
-  const reserveBottom = side === "right" && window.innerWidth > 900 ? 260 : 88;
-  const minBottom = top + Math.max(0, items.length - 1) * gap;
-  const bottom = Math.min(height - 88, Math.max(98, height - reserveBottom, minBottom));
+function projectedNzBounds() {
+  const [[south, west], [north, east]] = CONFIG.nzBounds;
+  const northWest = map.latLngToContainerPoint([north, west]);
+  const southEast = map.latLngToContainerPoint([south, east]);
+  return {
+    minX: Math.min(northWest.x, southEast.x),
+    maxX: Math.max(northWest.x, southEast.x),
+    minY: Math.min(northWest.y, southEast.y),
+    maxY: Math.max(northWest.y, southEast.y)
+  };
+}
+
+function scaleUnitOffsetPixels() {
+  const center = map.getCenter();
+  const longitudeScale = 111320 * Math.max(0.2, Math.cos(center.lat * Math.PI / 180));
+  const longitudeDelta = 100000 / longitudeScale;
+  const start = map.latLngToContainerPoint(center);
+  const end = map.latLngToContainerPoint([center.lat, center.lng + longitudeDelta]);
+  return clamp(Math.abs(end.x - start.x), 42, 92);
+}
+
+function nearestNzBoundarySide(point, bounds) {
+  const distances = [
+    ["west", Math.abs(point.x - bounds.minX)],
+    ["east", Math.abs(bounds.maxX - point.x)],
+    ["north", Math.abs(point.y - bounds.minY)],
+    ["south", Math.abs(bounds.maxY - point.y)]
+  ];
+  return distances.sort((a, b) => a[1] - b[1])[0][0];
+}
+
+function distributeBoundaryCallouts(items, bounds, size, side, offset) {
+  const gap = 42;
+  const isVerticalSide = side === "west" || side === "east";
+  const screenStart = isVerticalSide ? 74 : 64;
+  const screenEnd = isVerticalSide ? size.y - 86 : size.x - 64;
+  const boundStart = isVerticalSide ? bounds.minY : bounds.minX;
+  const boundEnd = isVerticalSide ? bounds.maxY : bounds.maxX;
+  const projectedStart = clamp(boundStart, screenStart, screenEnd);
+  const projectedEnd = clamp(boundEnd, screenStart, screenEnd);
+  const requiredSpan = Math.max(0, items.length - 1) * gap;
+  const maximumSpan = Math.max(0, screenEnd - screenStart);
+  const span = Math.min(maximumSpan, Math.max(Math.abs(projectedEnd - projectedStart), requiredSpan));
+  const midpoint = clamp(
+    (projectedStart + projectedEnd) / 2,
+    screenStart + span / 2,
+    screenEnd - span / 2
+  );
+  const start = midpoint - span / 2;
+  const end = midpoint + span / 2;
+  const effectiveGap = items.length > 1 ? Math.min(gap, (end - start) / (items.length - 1)) : gap;
+  const fixed = {
+    west: clamp(bounds.minX - offset, 18, size.x - 18),
+    east: clamp(bounds.maxX + offset, 18, size.x - 18),
+    north: clamp(bounds.minY - offset, 74, size.y - 86),
+    south: clamp(bounds.maxY + offset, 74, size.y - 86)
+  };
+
   const sorted = items
     .slice()
-    .sort((a, b) => a.point.y - b.point.y)
+    .sort((a, b) => (isVerticalSide ? a.point.y - b.point.y : a.point.x - b.point.x))
     .map((item) => ({
       ...item,
-      calloutY: Math.max(top, Math.min(bottom, item.point.y))
+      side,
+      calloutX: isVerticalSide ? fixed[side] : clamp(item.point.x, start, end),
+      calloutY: isVerticalSide ? clamp(item.point.y, start, end) : fixed[side]
     }));
 
+  const axisKey = isVerticalSide ? "calloutY" : "calloutX";
+
   for (let index = 1; index < sorted.length; index += 1) {
-    sorted[index].calloutY = Math.max(sorted[index].calloutY, sorted[index - 1].calloutY + gap);
+    sorted[index][axisKey] = Math.max(sorted[index][axisKey], sorted[index - 1][axisKey] + effectiveGap);
   }
 
   for (let index = sorted.length - 2; index >= 0; index -= 1) {
-    sorted[index].calloutY = Math.min(sorted[index].calloutY, sorted[index + 1].calloutY - gap);
+    sorted[index][axisKey] = Math.min(sorted[index][axisKey], sorted[index + 1][axisKey] - effectiveGap);
   }
 
-  const overflow = sorted.length ? sorted[sorted.length - 1].calloutY - bottom : 0;
+  const overflow = sorted.length ? sorted[sorted.length - 1][axisKey] - end : 0;
   if (overflow > 0) {
     sorted.forEach((item) => {
-      item.calloutY = Math.max(top, item.calloutY - overflow);
+      item[axisKey] = Math.max(start, item[axisKey] - overflow);
     });
   }
 
@@ -552,15 +618,21 @@ function arrowLineSvg(item, width) {
   const props = item.feature.properties || {};
   const side = item.side;
   const type = props.energy_type === "solar" ? "solar" : "wind";
-  const startX = side === "left" ? 50 : width - 50;
+  const startX = item.calloutX;
   const startY = item.calloutY;
   const endX = item.point.x;
   const endY = item.point.y;
-  const controlX = side === "left" ? Math.min(endX - 28, startX + 95) : Math.max(endX + 28, startX - 95);
+  const isVerticalSide = side === "west" || side === "east";
+  const controlX = isVerticalSide
+    ? (side === "west" ? Math.min(endX - 28, startX + 95) : Math.max(endX + 28, startX - 95))
+    : startX;
+  const controlY = isVerticalSide
+    ? startY
+    : (side === "north" ? Math.min(endY - 28, startY + 95) : Math.max(endY + 28, startY - 95));
 
   return `
     <path class="rank-arrow ${type}"
-      d="M ${startX.toFixed(1)} ${startY.toFixed(1)} C ${controlX.toFixed(1)} ${startY.toFixed(1)}, ${controlX.toFixed(1)} ${endY.toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}"
+      d="M ${startX.toFixed(1)} ${startY.toFixed(1)} C ${controlX.toFixed(1)} ${controlY.toFixed(1)}, ${isVerticalSide ? controlX.toFixed(1) : endX.toFixed(1)} ${isVerticalSide ? endY.toFixed(1) : controlY.toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}"
       marker-end="url(#rank-arrow-${type})" />
   `;
 }
@@ -582,20 +654,25 @@ function updateSiteRankCallouts() {
 
   const size = map.getSize();
   const features = siteSelectionCalloutFeatures();
-  const left = [];
-  const right = [];
+  const bounds = projectedNzBounds();
+  const offset = scaleUnitOffsetPixels();
+  const grouped = {
+    north: [],
+    east: [],
+    south: [],
+    west: []
+  };
 
   features.forEach((item) => {
-    const type = item.feature.properties?.energy_type;
-    const side = state.filters.energy === "all"
-      ? (type === "solar" ? "right" : "left")
-      : (item.point.x < size.x / 2 ? "left" : "right");
-    (side === "left" ? left : right).push({ ...item, side });
+    const side = nearestNzBoundarySide(item.point, bounds);
+    grouped[side].push(item);
   });
 
   const positioned = [
-    ...distributeCalloutPositions(left, size.y, "left"),
-    ...distributeCalloutPositions(right, size.y, "right")
+    ...distributeBoundaryCallouts(grouped.north, bounds, size, "north", offset),
+    ...distributeBoundaryCallouts(grouped.east, bounds, size, "east", offset),
+    ...distributeBoundaryCallouts(grouped.south, bounds, size, "south", offset),
+    ...distributeBoundaryCallouts(grouped.west, bounds, size, "west", offset)
   ];
 
   container.hidden = positioned.length === 0;
@@ -620,7 +697,7 @@ function updateSiteRankCallouts() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `rank-callout ${type} ${item.side}`;
-    button.style.left = `${item.side === "left" ? 16 : size.x - 52}px`;
+    button.style.left = `${item.calloutX - 18}px`;
     button.style.top = `${item.calloutY - 18}px`;
     button.title = `${titleCase(type)} rank ${props.rank}: ${props.candidate_name || "Recommended site"}`;
     button.innerHTML = `<span>${escapeHtml(props.rank || "")}</span>`;
@@ -942,6 +1019,12 @@ function exportVisibleGeoJson() {
   URL.revokeObjectURL(url);
 }
 
+function updatePopupOpacity(value) {
+  state.filters.popupOpacity = clamp(Number(value) / 100, 0.6, 1);
+  document.documentElement.style.setProperty("--popup-opacity", state.filters.popupOpacity.toFixed(2));
+  document.getElementById("popup-opacity-value").textContent = `${Math.round(state.filters.popupOpacity * 100)}%`;
+}
+
 function attachEvents() {
   document.querySelectorAll("[data-layer]").forEach((checkbox) => {
     checkbox.addEventListener("change", (event) => {
@@ -967,6 +1050,10 @@ function attachEvents() {
     refreshLayers();
   });
 
+  document.getElementById("popup-opacity").addEventListener("input", (event) => {
+    updatePopupOpacity(event.target.value);
+  });
+
   document.getElementById("search-button").addEventListener("click", () => {
     searchLocations(document.getElementById("search-input").value);
   });
@@ -988,6 +1075,7 @@ async function init() {
   createWmsLayers();
   setupSiteRankCallouts();
   attachEvents();
+  updatePopupOpacity(document.getElementById("popup-opacity").value);
   refreshLayers();
   map.fitBounds(CONFIG.nzBounds, { padding: [20, 20] });
 }

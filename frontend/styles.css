@@ -9,6 +9,7 @@
   --accent-3: #5a6fb0;
   --danger: #b34d3d;
   --shadow: 0 18px 50px rgba(25, 38, 30, 0.18);
+  --popup-opacity: 1;
 }
 
 * {
@@ -238,7 +239,7 @@ input[type="range"] {
   position: absolute;
   top: 16px;
   right: 16px;
-  z-index: 500;
+  z-index: 520;
   display: flex;
   gap: 8px;
 }
@@ -251,7 +252,7 @@ input[type="range"] {
   position: absolute;
   right: 16px;
   bottom: 22px;
-  z-index: 500;
+  z-index: 510;
   width: 210px;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--line);
@@ -325,12 +326,22 @@ input[type="range"] {
   border: 2px solid #111827;
 }
 
-.leaflet-popup-content {
-  min-width: 230px;
+.leaflet-pane.leaflet-popup-pane {
+  z-index: 3000 !important;
 }
 
-.leaflet-popup-pane {
-  z-index: 900;
+.leaflet-popup {
+  z-index: 3100 !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: rgba(255, 255, 255, var(--popup-opacity));
+  backdrop-filter: blur(3px);
+}
+
+.leaflet-popup-content {
+  min-width: 230px;
 }
 
 .leaflet-control-scale {
@@ -450,11 +461,11 @@ input[type="range"] {
 }
 
 .rank-arrows {
-  z-index: 440;
+  z-index: 180;
 }
 
 .rank-callouts {
-  z-index: 470;
+  z-index: 530;
 }
 
 .rank-arrows {
@@ -511,6 +522,17 @@ input[type="range"] {
 
 .rank-callout.wind {
   --rank-color: #4f67b1;
+}
+
+.map-stage.popup-active .rank-arrows {
+  z-index: 80;
+  opacity: 0.22;
+}
+
+.map-stage.popup-active .rank-callouts,
+.map-stage.popup-active .legend {
+  z-index: 120;
+  opacity: 0.28;
 }
 
 @media (max-width: 900px) {
