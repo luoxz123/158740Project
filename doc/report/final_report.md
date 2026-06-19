@@ -158,6 +158,33 @@ scripts/import_transpower_lines.py
 
 This script uses Transpower's public `TransmissionLines` ArcGIS FeatureServer, filters commissioned assets, simplifies geometry for browser and analysis performance, cleans invalid line geometry, writes frontend GeoJSON, and can insert the lines into PostGIS. This replaced the earlier small sample transmission layer and improved the candidate scoring around Tauranga, Napier, Hastings, and other areas.
 
+#### 2.4.4 GIS Spatial Analysis
+
+The project includes explicit GIS spatial analysis rather than only displaying downloaded layers. The purpose of this analysis is to turn raw spatial evidence into planning criteria for renewable-energy suitability. The main analysis operations are terrain screening, proximity analysis, accessibility analysis, and spatial exclusion.
+
+**Slope analysis.** Slope is an important criterion for renewable-energy site selection, especially for solar farms. Solar panels are easier and cheaper to install on relatively flat or gently sloping land, while steep slopes can increase construction cost, access difficulty, erosion risk, and maintenance complexity. In the GIS design, slope values are generated from a DEM using standard terrain-processing tools in QGIS or raster GIS workflows. The resulting slope values are represented in the suitability tables using the `slope_degree` attribute in `wind_suitability` and `solar_suitability`. This allows the frontend popup and export workflow to show terrain suitability as part of the suitability evidence.
+
+**Aspect analysis.** Aspect analysis was considered with the slope workflow because the direction of slope affects solar exposure. For the southern hemisphere, north-facing slopes generally receive better solar exposure than south-facing slopes. Therefore, south-facing slopes are treated as less suitable or excluded for solar-farm screening. This criterion is particularly relevant for solar farms because topographic orientation can affect the amount of usable radiation received by photovoltaic panels. In a full engineering model this would be combined with detailed solar radiation modelling; in this student WebGIS it is documented as a GIS screening criterion and reflected through the simplified solar suitability layer.
+
+**Distance to transmission lines.** Grid proximity is one of the strongest practical feasibility factors because long grid connections increase cost and consenting complexity. The project therefore imports Transpower transmission lines and calculates the distance from suitability zones or candidate points to the nearest transmission geometry. This is implemented in PostGIS and in the candidate-site workflow. An example PostGIS proximity query is:
+
+```sql
+SELECT
+    s.energy_type,
+    s.region_name,
+    ROUND((MIN(ST_Distance(s.geom, t.geom)) / 1000.0)::numeric, 2) AS nearest_grid_km
+FROM suitability_all s
+JOIN transmission_lines t
+    ON ST_DWithin(s.geom, t.geom, 10000)
+GROUP BY s.energy_type, s.region_name;
+```
+
+This query uses `ST_DWithin(...)` to limit the search to features within 10 km and `ST_Distance(...)` to calculate nearest transmission distance. The same logic supports the `distance_to_transmission_km` attribute in the ranked candidate-site layer.
+
+**Distance to roads.** Road access is also included as a planning criterion because renewable-energy sites need access for construction vehicles, maintenance, and emergency response. The project includes a road corridor layer and publishes it in both PostGIS and the Leaflet frontend. Although road distance is not weighted as heavily as resource quality or transmission proximity in the final candidate score, the road layer supports visual accessibility analysis, popup inspection, search by road class, and future spatial queries such as nearest-road distance or buffer-based access screening.
+
+Together, these spatial analyses demonstrate that the WebGIS is not only a visualisation product. It applies GIS operations to evaluate where renewable infrastructure is more realistic: suitable terrain, favourable solar orientation, close transmission access, road accessibility, and avoidance of protected areas.
+
 ### 2.5 Suitability and Candidate-Scoring Design
 
 The scoring model was designed to be transparent. Each candidate site receives four component scores:
@@ -212,6 +239,23 @@ The technology stack was chosen to meet the assignment requirement for open-sour
 PostGIS was selected because it spatially enables PostgreSQL and is widely used as a backend database for GIS and web-mapping applications. GeoServer was selected because it provides WMS support, SLD styling, and integration with PostGIS. Leaflet was selected because it is lightweight and supports the mapping functions required by the assignment without the overhead of a large frontend framework.
 
 Docker deployment was attempted but rejected as the primary VM approach because the Windows VM did not have enough memory. The final deployment method therefore uses traditional Windows services and batch scripts. This is more stable for the available infrastructure.
+
+#### 2.7.1 Alternative Technologies Considered
+
+Several alternative technologies and data sources were considered before the final design was selected. Documenting these alternatives is important because the project was constrained by time, VM resources, data access, and the requirement to use open-source software.
+
+| Alternative | Considered | Reason rejected or not selected |
+|---|---|---|
+| OpenLayers | Yes | OpenLayers is powerful and suitable for complex web mapping, but it has a steeper learning curve and more configuration overhead than Leaflet. Leaflet was sufficient for GeoJSON, WMS, popups, layer toggles, and the assignment timeframe. |
+| MapServer | Yes | MapServer is a mature open-source web map server, but GeoServer provides a more accessible web administration interface, easier PostGIS publishing, and clearer SLD style management for a student deployment. |
+| Docker deployment | Yes | Docker would make deployment more reproducible, but the Windows VM had limited memory. Running PostgreSQL, GeoServer, and the frontend through Docker was less stable than using the already installed VM services and batch scripts. |
+| NIWA / Earth Sciences NZ VCSN API | Yes | VCSN would provide stronger gridded wind and solar evidence, but paid data access was not realistic for this student project. The project therefore used open Open-Meteo weather history and an 87-location sampling strategy. |
+| Live MetService scraping | Yes | MetService contains useful warnings and weather information, but many pages are dynamic and not easy to collect reliably through simple static scraping. The project separated physical weather-resource collection from GIR text collection to keep the workflow stable. |
+| Full backend REST API | Yes | A custom API would support dynamic database queries, but it would add development and deployment complexity. The project instead uses PostGIS/GeoServer for GIS services and local GeoJSON as a reliable fallback. |
+| Raster-heavy suitability model | Yes | A full raster model using DEM, land cover, slope, aspect, solar radiation, and wind grids would be more sophisticated, but it would require larger datasets, more processing time, and more VM storage. The current vector/point model is more realistic for the four-week project. |
+| QGIS-only desktop workflow | Yes | QGIS is useful for preparation and checking, but a desktop-only workflow would not satisfy the WebGIS requirement. The final design keeps QGIS as a processing support tool while delivering the product through a browser. |
+
+The final stack was selected because it balances capability and practicality. Leaflet, PostGIS, GeoServer, Python, GeoJSON, and CSV are open-source, well documented, and realistic to deploy on the available VM. The rejected alternatives would be valid in a larger professional project, but they introduced unnecessary complexity, cost, or infrastructure risk for this assignment.
 
 ### 2.8 Deployment Design
 

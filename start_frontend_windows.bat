@@ -2,7 +2,7 @@
 setlocal EnableExtensions
 cd /d "%~dp0"
 
-if "%FRONTEND_PORT%"=="" set "FRONTEND_PORT=8000"
+if "%FRONTEND_PORT%"=="" set "FRONTEND_PORT=80"
 
 py -3 --version >nul 2>nul
 if not errorlevel 1 (
